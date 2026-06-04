@@ -8,10 +8,7 @@ interface StyleEditorProps {
   onStyleChange: (style: EmailStyle) => void;
 }
 
-export default function StyleEditorComponent({
-  style,
-  onStyleChange,
-}: StyleEditorProps) {
+export default function StyleEditorComponent({ style, onStyleChange }: StyleEditorProps) {
   const handleFontChange = (font: string) => {
     onStyleChange({ ...style, fontFamily: font });
   };
@@ -36,27 +33,23 @@ export default function StyleEditorComponent({
     onStyleChange({ ...style, layout });
   };
 
-  const handleHeaderStyleChange = (
-    headerStyle: "default" | "image" | "gradient"
-  ) => {
+  const handleHeaderStyleChange = (headerStyle: "default" | "image" | "gradient") => {
     onStyleChange({ ...style, headerStyle });
   };
 
   return (
     <div className="space-y-6">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          字体样式
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">字体样式</label>
         <div className="flex flex-wrap gap-2">
           {FONT_OPTIONS.map((font) => (
             <button
               key={font.value}
               onClick={() => handleFontChange(font.value)}
-              className={`px-3 py-1 text-sm rounded-md border transition-colors ${
+              className={`rounded-md border px-3 py-1 text-sm transition-colors ${
                 style.fontFamily === font.value
-                  ? "bg-rose-gold text-white border-rose-gold"
-                  : "bg-white text-gray-700 border-gray-300 hover:border-rose-gold"
+                  ? "border-rose-gold bg-rose-gold text-white"
+                  : "border-gray-300 bg-white text-gray-700 hover:border-rose-gold"
               }`}
               style={{ fontFamily: font.value }}
             >
@@ -67,7 +60,7 @@ export default function StyleEditorComponent({
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="mb-2 block text-sm font-medium text-gray-700">
           字体大小：{style.fontSize}px
         </label>
         <input
@@ -76,22 +69,20 @@ export default function StyleEditorComponent({
           max="24"
           value={style.fontSize}
           onChange={handleFontSizeChange}
-          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-rose-gold"
+          className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-rose-gold"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          文字颜色
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">文字颜色</label>
         <div className="flex flex-wrap gap-2">
           {COLOR_OPTIONS.map((color) => (
             <button
               key={color.value}
               onClick={() => handleColorChange(color.value)}
-              className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${
+              className={`h-8 w-8 rounded-full border-2 transition-transform hover:scale-110 ${
                 style.textColor === color.value
-                  ? "border-gray-800 ring-2 ring-offset-2 ring-gray-400"
+                  ? "border-gray-800 ring-2 ring-gray-400 ring-offset-2"
                   : "border-gray-200"
               }`}
               style={{ backgroundColor: color.value }}
@@ -102,17 +93,15 @@ export default function StyleEditorComponent({
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          背景颜色
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">背景颜色</label>
         <div className="flex flex-wrap gap-2">
           {COLOR_OPTIONS.map((color) => (
             <button
               key={color.value}
               onClick={() => handleBackgroundColorChange(color.value)}
-              className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${
+              className={`h-8 w-8 rounded-full border-2 transition-transform hover:scale-110 ${
                 style.backgroundColor === color.value
-                  ? "border-gray-800 ring-2 ring-offset-2 ring-gray-400"
+                  ? "border-gray-800 ring-2 ring-gray-400 ring-offset-2"
                   : "border-gray-200"
               }`}
               style={{ backgroundColor: color.value }}
@@ -121,9 +110,9 @@ export default function StyleEditorComponent({
           ))}
           <button
             onClick={() => handleBackgroundColorChange("#FFFFFF")}
-            className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${
+            className={`h-8 w-8 rounded-full border-2 transition-transform hover:scale-110 ${
               style.backgroundColor === "#FFFFFF"
-                ? "border-gray-800 ring-2 ring-offset-2 ring-gray-400"
+                ? "border-gray-800 ring-2 ring-gray-400 ring-offset-2"
                 : "border-gray-200"
             }`}
             style={{ backgroundColor: "#FFFFFF" }}
@@ -133,17 +122,15 @@ export default function StyleEditorComponent({
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          强调色
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">强调色</label>
         <div className="flex flex-wrap gap-2">
           {COLOR_OPTIONS.map((color) => (
             <button
               key={color.value}
               onClick={() => handleAccentColorChange(color.value)}
-              className={`w-8 h-8 rounded-full border-2 transition-transform hover:scale-110 ${
+              className={`h-8 w-8 rounded-full border-2 transition-transform hover:scale-110 ${
                 style.accentColor === color.value
-                  ? "border-gray-800 ring-2 ring-offset-2 ring-gray-400"
+                  ? "border-gray-800 ring-2 ring-gray-400 ring-offset-2"
                   : "border-gray-200"
               }`}
               style={{ backgroundColor: color.value }}
@@ -154,33 +141,27 @@ export default function StyleEditorComponent({
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          布局样式
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">布局样式</label>
         <div className="grid grid-cols-3 gap-2">
           {LAYOUT_OPTIONS.map((layout) => (
             <button
               key={layout.id}
-              onClick={() =>
-                handleLayoutChange(layout.id as "standard" | "centered" | "minimal")
-              }
-              className={`p-3 text-sm rounded-lg border transition-colors ${
+              onClick={() => handleLayoutChange(layout.id as "standard" | "centered" | "minimal")}
+              className={`rounded-lg border p-3 text-sm transition-colors ${
                 style.layout === layout.id
-                  ? "bg-rose-gold text-white border-rose-gold"
-                  : "bg-white text-gray-700 border-gray-300 hover:border-rose-gold"
+                  ? "border-rose-gold bg-rose-gold text-white"
+                  : "border-gray-300 bg-white text-gray-700 hover:border-rose-gold"
               }`}
             >
               <div className="font-medium">{layout.name}</div>
-              <div className="text-xs mt-1 opacity-75">{layout.description}</div>
+              <div className="mt-1 text-xs opacity-75">{layout.description}</div>
             </button>
           ))}
         </div>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          头部样式
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">头部样式</label>
         <div className="grid grid-cols-3 gap-2">
           {[
             { id: "default", name: "默认", description: "简洁头部" },
@@ -189,19 +170,15 @@ export default function StyleEditorComponent({
           ].map((header) => (
             <button
               key={header.id}
-              onClick={() =>
-                handleHeaderStyleChange(
-                  header.id as "default" | "image" | "gradient"
-                )
-              }
-              className={`p-3 text-sm rounded-lg border transition-colors ${
+              onClick={() => handleHeaderStyleChange(header.id as "default" | "image" | "gradient")}
+              className={`rounded-lg border p-3 text-sm transition-colors ${
                 style.headerStyle === header.id
-                  ? "bg-rose-gold text-white border-rose-gold"
-                  : "bg-white text-gray-700 border-gray-300 hover:border-rose-gold"
+                  ? "border-rose-gold bg-rose-gold text-white"
+                  : "border-gray-300 bg-white text-gray-700 hover:border-rose-gold"
               }`}
             >
               <div className="font-medium">{header.name}</div>
-              <div className="text-xs mt-1 opacity-75">{header.description}</div>
+              <div className="mt-1 text-xs opacity-75">{header.description}</div>
             </button>
           ))}
         </div>

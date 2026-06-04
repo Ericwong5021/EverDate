@@ -7,10 +7,7 @@ interface SendTimePickerProps {
   onTimeChange: (time: string) => void;
 }
 
-export default function SendTimePicker({
-  scheduledAt,
-  onTimeChange,
-}: SendTimePickerProps) {
+export default function SendTimePicker({ scheduledAt, onTimeChange }: SendTimePickerProps) {
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const currentDate = scheduledAt ? new Date(scheduledAt) : new Date();
     const newDate = new Date(e.target.value);
@@ -43,30 +40,26 @@ export default function SendTimePicker({
   return (
     <div className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          发送日期
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">发送日期</label>
         <input
           type="date"
           value={formatDate()}
           onChange={handleDateChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          发送时间
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">发送时间</label>
         <input
           type="time"
           value={formatTime()}
           onChange={handleTimeChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
         />
       </div>
 
-      <div className="bg-gray-50 p-3 rounded-lg">
+      <div className="rounded-lg bg-gray-50 p-3">
         <p className="text-sm text-gray-600">
           <span className="font-medium">预定发送时间：</span>
           {scheduledAt
@@ -88,7 +81,7 @@ export default function SendTimePicker({
             now.setMinutes(now.getMinutes() + 5);
             onTimeChange(now.toISOString());
           }}
-          className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+          className="rounded bg-gray-200 px-3 py-1 text-sm text-gray-700 transition-colors hover:bg-gray-300"
         >
           5分钟后
         </button>
@@ -99,7 +92,7 @@ export default function SendTimePicker({
             tomorrow.setHours(9, 0, 0, 0);
             onTimeChange(tomorrow.toISOString());
           }}
-          className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+          className="rounded bg-gray-200 px-3 py-1 text-sm text-gray-700 transition-colors hover:bg-gray-300"
         >
           明天9点
         </button>
@@ -110,7 +103,7 @@ export default function SendTimePicker({
             nextWeek.setHours(9, 0, 0, 0);
             onTimeChange(nextWeek.toISOString());
           }}
-          className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+          className="rounded bg-gray-200 px-3 py-1 text-sm text-gray-700 transition-colors hover:bg-gray-300"
         >
           下周9点
         </button>

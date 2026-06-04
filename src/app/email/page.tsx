@@ -84,19 +84,17 @@ export default function EmailPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl font-bold text-wine">邮件预览与编辑</h1>
-          <p className="mt-1 text-sm text-gray-500">
-            自定义邮件内容，预览最终效果，设置发送时间
-          </p>
+          <p className="mt-1 text-sm text-gray-500">自定义邮件内容，预览最终效果，设置发送时间</p>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <div className="flex space-x-1 mb-6 border-b border-gray-200">
+            <div className="rounded-lg bg-white p-6 shadow-sm">
+              <div className="mb-6 flex space-x-1 border-b border-gray-200">
                 {[
                   { id: "editor", name: "邮件内容" },
                   { id: "style", name: "样式设置" },
@@ -106,7 +104,7 @@ export default function EmailPage() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                    className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
+                    className={`border-b-2 px-4 py-2 text-sm font-medium transition-colors ${
                       activeTab === tab.id
                         ? "border-rose-gold text-rose-gold"
                         : "border-transparent text-gray-500 hover:text-gray-700"
@@ -133,17 +131,11 @@ export default function EmailPage() {
               )}
 
               {activeTab === "style" && (
-                <StyleEditorComponent
-                  style={editor.style}
-                  onStyleChange={handleStyleChange}
-                />
+                <StyleEditorComponent style={editor.style} onStyleChange={handleStyleChange} />
               )}
 
               {activeTab === "time" && (
-                <SendTimePicker
-                  scheduledAt={editor.scheduledAt}
-                  onTimeChange={handleTimeChange}
-                />
+                <SendTimePicker scheduledAt={editor.scheduledAt} onTimeChange={handleTimeChange} />
               )}
 
               {activeTab === "recipient" && (
@@ -157,13 +149,13 @@ export default function EmailPage() {
             <div className="flex space-x-4">
               <button
                 onClick={handleSave}
-                className="flex-1 px-4 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+                className="flex-1 rounded-lg bg-gray-200 px-4 py-3 font-medium text-gray-700 transition-colors hover:bg-gray-300"
               >
                 保存配置
               </button>
               <button
                 onClick={handleSendTest}
-                className="flex-1 px-4 py-3 bg-rose-gold text-white rounded-lg hover:bg-wine transition-colors font-medium"
+                className="flex-1 rounded-lg bg-rose-gold px-4 py-3 font-medium text-white transition-colors hover:bg-wine"
               >
                 发送测试邮件
               </button>
@@ -171,10 +163,8 @@ export default function EmailPage() {
           </div>
 
           <div className="lg:sticky lg:top-6 lg:self-start">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h2 className="text-lg font-semibold text-gray-800 mb-4">
-                实时预览
-              </h2>
+            <div className="rounded-lg bg-white p-6 shadow-sm">
+              <h2 className="mb-4 text-lg font-semibold text-gray-800">实时预览</h2>
               <EmailPreviewComponent preview={previewData} />
             </div>
           </div>

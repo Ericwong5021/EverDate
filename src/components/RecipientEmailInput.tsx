@@ -7,10 +7,7 @@ interface RecipientEmailInputProps {
   onEmailChange: (email: string) => void;
 }
 
-export default function RecipientEmailInput({
-  email,
-  onEmailChange,
-}: RecipientEmailInputProps) {
+export default function RecipientEmailInput({ email, onEmailChange }: RecipientEmailInputProps) {
   const [error, setError] = useState<string | null>(null);
 
   const validateEmail = (email: string) => {
@@ -31,22 +28,18 @@ export default function RecipientEmailInput({
 
   return (
     <div className="space-y-2">
-      <label className="block text-sm font-medium text-gray-700">
-        收件人邮箱
-      </label>
+      <label className="block text-sm font-medium text-gray-700">收件人邮箱</label>
       <input
         type="email"
         value={email}
         onChange={handleChange}
         placeholder="example@email.com"
-        className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent ${
+        className={`w-full rounded-lg border px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold ${
           error ? "border-red-500" : "border-gray-300"
         }`}
       />
       {error && <p className="text-sm text-red-500">{error}</p>}
-      <p className="text-xs text-gray-500">
-        纪念日当天将自动发送到此邮箱
-      </p>
+      <p className="text-xs text-gray-500">纪念日当天将自动发送到此邮箱</p>
     </div>
   );
 }

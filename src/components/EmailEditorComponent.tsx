@@ -40,47 +40,41 @@ export default function EmailEditorComponent({
   return (
     <div className="space-y-6">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          邮件主题
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">邮件主题</label>
         <input
           type="text"
           value={editor.subject}
           onChange={handleSubjectChange}
           placeholder="输入邮件主题..."
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          邮件正文
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">邮件正文</label>
         <textarea
           value={editor.body}
           onChange={handleBodyChange}
           placeholder="输入邮件内容..."
           rows={8}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent resize-none"
+          className="w-full resize-none rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          照片附件
-        </label>
+        <label className="mb-2 block text-sm font-medium text-gray-700">照片附件</label>
         <div className="flex flex-wrap gap-4">
           {editor.photos.map((photo, index) => (
-            <div key={index} className="relative group">
+            <div key={index} className="group relative">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={photo}
                 alt={`照片 ${index + 1}`}
-                className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+                className="h-24 w-24 rounded-lg border border-gray-200 object-cover"
               />
               <button
                 onClick={() => removePhoto(index)}
-                className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute -right-2 -top-2 h-6 w-6 rounded-full bg-red-500 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100"
               >
                 ×
               </button>
@@ -88,7 +82,7 @@ export default function EmailEditorComponent({
           ))}
           <button
             onClick={() => fileInputRef.current?.click()}
-            className="w-24 h-24 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center text-gray-500 hover:border-rose-gold hover:text-rose-gold transition-colors"
+            className="flex h-24 w-24 flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 text-gray-500 transition-colors hover:border-rose-gold hover:text-rose-gold"
           >
             <span className="text-2xl">+</span>
             <span className="text-xs">添加照片</span>
