@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+    networks:
+      - everdate-network
+
+  server:
+    build: ./server
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - DATABASE_URL=postgresql://postgres:password@db:5432/everdate
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY}
+    depends_on:
+      - db
+    networks:
+      - everdate-network
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=everdate
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - everdate-network
+
+volumes:
+  postgres_data:
+
+networks:
+  everdate-network:
+    driver: bridge
