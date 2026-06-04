@@ -1,90 +1,114 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import "tailwindcss";
 
-@layer base {
-  :root {
-    --color-wine: #722F37;
-    --color-wine-light: #8B3A44;
-    --color-wine-dark: #5A252C;
-    --color-rose-gold: #B76E79;
-    --color-cream: #FFFDD0;
-    --color-cream-light: #FFFDE7;
+:root {
+  --background: #fdf8f5;
+  --foreground: #3d1a1a;
+
+  --wine-red: #8b2252;
+  --wine-red-light: #a83270;
+  --wine-red-dark: #6b1a3f;
+  --rose-gold: #b76e79;
+  --rose-gold-light: #d4929b;
+  --rose-gold-pale: #f0d4d8;
+  --cream: #fdf8f5;
+  --cream-warm: #faf0e6;
+  --gold-accent: #c9a96e;
+  --gold-light: #e8d5a8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-wine-red: var(--wine-red);
+  --color-wine-red-light: var(--wine-red-light);
+  --color-wine-red-dark: var(--wine-red-dark);
+  --color-rose-gold: var(--rose-gold);
+  --color-rose-gold-light: var(--rose-gold-light);
+  --color-rose-gold-pale: var(--rose-gold-pale);
+  --color-cream: var(--cream);
+  --color-cream-warm: var(--cream-warm);
+  --color-gold-accent: var(--gold-accent);
+  --color-gold-light: var(--gold-light);
+  --font-serif-cn: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  --font-serif-en: 'Playfair Display', 'Georgia', serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@layer components {
-  .email-editor-input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent transition-all;
+@keyframes pulse-gentle {
+  0%, 100% {
+    opacity: 1;
   }
-
-  .email-editor-textarea {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent resize-none transition-all;
-  }
-
-  .email-editor-button {
-    @apply px-4 py-2 rounded-lg font-medium transition-colors;
-  }
-
-  .email-editor-button-primary {
-    @apply bg-rose-gold text-white hover:bg-wine;
-  }
-
-  .email-editor-button-secondary {
-    @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
-  }
-
-  .email-preview-container {
-    @apply bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg;
-  }
-
-  .email-preview-header {
-    @apply bg-gray-50 px-4 py-3 border-b border-gray-200;
-  }
-
-  .email-preview-content {
-    @apply p-6;
-  }
-
-  .email-preview-footer {
-    @apply bg-gray-50 px-4 py-3 border-t border-gray-200 flex justify-between items-center;
+  50% {
+    opacity: 0.7;
   }
 }
 
-@layer utilities {
-  .text-wine {
-    color: var(--color-wine);
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
   }
+  100% {
+    background-position: 200% center;
+  }
+}
 
-  .bg-wine {
-    background-color: var(--color-wine);
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
   }
+  50% {
+    transform: translateY(-6px);
+  }
+}
 
-  .text-rose-gold {
-    color: var(--color-rose-gold);
-  }
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
 
-  .bg-rose-gold {
-    background-color: var(--color-rose-gold);
-  }
+.animate-pulse-gentle {
+  animation: pulse-gentle 2s ease-in-out infinite;
+}
 
-  .border-rose-gold {
-    border-color: var(--color-rose-gold);
-  }
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
 
-  .ring-rose-gold {
-    --tw-ring-color: var(--color-rose-gold);
-  }
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
 
-  .hover\:bg-wine:hover {
-    background-color: var(--color-wine);
-  }
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(183, 110, 121, 0.15);
+}
 
-  .hover\:text-rose-gold:hover {
-    color: var(--color-rose-gold);
-  }
+.text-gradient {
+  background: linear-gradient(135deg, var(--wine-red), var(--rose-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-  .hover\:border-rose-gold:hover {
-    border-color: var(--color-rose-gold);
-  }
+.border-rose-gradient {
+  border-image: linear-gradient(135deg, var(--rose-gold-pale), var(--rose-gold-light), var(--rose-gold-pale)) 1;
 }

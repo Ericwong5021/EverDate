@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "EverDate - 纪念日惊喜助手",
-  description: "智能纪念日倒计时与惊喜邮件服务",
+  title: "EverDate — 纪念日倒计时",
+  description: "为你的特别日子，创造浪漫倒计时。每一分每一秒，都是爱的期待。",
+  openGraph: {
+    title: "EverDate — 纪念日倒计时",
+    description: "为你的特别日子，创造浪漫倒计时",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -12,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
-      <body>{children}</body>
+    <html lang="zh-CN" className={`${playfair.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-cream">{children}</body>
     </html>
   );
 }
