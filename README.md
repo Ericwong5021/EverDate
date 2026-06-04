@@ -1,85 +1,73 @@
-# EverDate - 纪念日惊喜助手
+# React + TypeScript + Vite
 
-智能纪念日倒计时与惊喜邮件服务
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 技术栈
+Currently, two official plugins are available:
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Testing**: Vitest
-- **CI/CD**: GitHub Actions
-- **Deployment**: Vercel
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 快速开始
+## React Compiler
 
-```bash
-# 安装依赖
-npm install
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-# 启动开发服务器
-npm run dev
+## Expanding the ESLint configuration
 
-# 构建生产版本
-npm run build
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-# 启动生产服务器
-npm start
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-## 开发命令
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```bash
-npm run dev          # 启动开发服务器
-npm run build        # 构建生产版本
-npm run start        # 启动生产服务器
-npm run lint         # 代码检查
-npm run lint:fix     # 自动修复 lint 问题
-npm run format       # 格式化代码
-npm run format:check # 检查代码格式
-npm run typecheck    # TypeScript 类型检查
-npm run test         # 运行测试
-npm run test:watch   # 监听模式运行测试
-npm run test:coverage # 运行测试并生成覆盖率报告
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-## 环境变量
-
-复制 `.env.example` 为 `.env.local` 并填入配置：
-
-```bash
-cp .env.example .env.local
-```
-
-## CI/CD
-
-- **CI**: 每次 push 或 PR 到 main 分支时自动运行 lint、typecheck、format check、test 和 build
-- **Deploy**: push 到 main 分支时自动部署到 Vercel
-
-### 部署配置
-
-在 GitHub 仓库设置中添加以下 Secrets：
-
-- `VERCEL_TOKEN`: Vercel API token
-- `VERCEL_ORG_ID`: Vercel organization ID
-- `VERCEL_PROJECT_ID`: Vercel project ID
-
-## 项目结构
-
-```
-EverDate/
-├── src/
-│   ├── app/           # Next.js App Router 页面
-│   ├── components/    # React 组件
-│   ├── lib/           # 工具函数和库
-│   ├── types/         # TypeScript 类型定义
-│   └── __tests__/     # 测试文件
-├── .github/
-│   └── workflows/     # GitHub Actions 工作流
-├── public/            # 静态资源
-└── package.json
-```
-
-## License
-
-MIT
