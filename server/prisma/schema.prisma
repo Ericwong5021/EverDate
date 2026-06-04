@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Order {
+  id            String   @id @default(uuid())
+  orderNo       String   @unique
+  userId        String
+  amount        Int      @default(990) // ¥9.9 = 990 分
+  currency      String   @default("CNY")
+  paymentMethod String   // wechat_pay | alipay
+  status        String   @default("pending") // pending | paid | failed | refunded
+  description   String?
+  metadata      String?  // JSON string for extra data
+  paidAt        DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([orderNo])
+  @@index([userId])
+  @@index([status])
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  phone     String?
+  paid      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+}
