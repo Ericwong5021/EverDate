@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(cuid())
+  email          String         @unique
+  name           String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  commemoratives Commemorative[]
+}
+
+model Commemorative {
+  id            String       @id @default(cuid())
+  userId        String
+  user          User         @relation(fields: [userId], references: [id])
+  title         String
+  recipientName String
+  recipientEmail String
+  month         Int
+  day           Int
+  year          Int?
+  subject       String
+  body          String
+  photoUrl      String?
+  enabled       Boolean      @default(true)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  emailLogs     EmailLog[]
+}
+
+model EmailLog {
+  id              String        @id @default(cuid())
+  commemorativeId String
+  commemorative   Commemorative @relation(fields: [commemorativeId], references: [id])
+  status          String        @default("pending") // pending, sending, success, failed
+  scheduledFor    DateTime
+  sentAt          DateTime?
+  errorMessage    String?
+  retryCount      Int           @default(0)
+  maxRetries      Int           @default(3)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
