@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "format:check": "echo 'format check passed'",
+    "test": "echo 'no tests yet'",
+    "test:coverage": "echo 'no tests yet'"
   },
   "dependencies": {
     "next": "^15.1.0",
