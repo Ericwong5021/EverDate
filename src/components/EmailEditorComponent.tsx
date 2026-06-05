@@ -33,7 +33,7 @@ export default function EmailEditorComponent({
   };
 
   const removePhoto = (index: number) => {
-    const newPhotos = editor.photos.filter((_, i) => i !== index);
+    const newPhotos = editor.photos.filter((_photo: string, i: number) => i !== index);
     onEditorChange({ ...editor, photos: newPhotos });
   };
 
@@ -66,7 +66,6 @@ export default function EmailEditorComponent({
         <div className="flex flex-wrap gap-4">
           {editor.photos.map((photo, index) => (
             <div key={index} className="group relative">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={photo}
                 alt={`照片 ${index + 1}`}

@@ -75,8 +75,7 @@ export default function EmailPreviewComponent({ preview }: EmailPreviewProps) {
 
         {preview.photos.length > 0 && (
           <div className="mb-6 grid grid-cols-2 gap-4">
-            {preview.photos.map((photo, index) => (
-              /* eslint-disable-next-line @next/next/no-img-element */
+            {preview.photos.map((photo: string, index: number) => (
               <img
                 key={index}
                 src={photo}

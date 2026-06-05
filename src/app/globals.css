@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --color-wine: #722F37;
-    --color-wine-light: #8B3A44;
-    --color-wine-dark: #5A252C;
-    --color-rose-gold: #B76E79;
-    --color-cream: #FFFDD0;
-    --color-cream-light: #FFFDE7;
+    --color-wine: #722f37;
+    --color-wine-light: #8b3a44;
+    --color-wine-dark: #5a252c;
+    --color-rose-gold: #b76e79;
+    --color-cream: #fffdd0;
+    --color-cream-light: #fffde7;
   }
 }
 
 @layer components {
   .email-editor-input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent transition-all;
+    @apply w-full rounded-lg border border-gray-300 px-4 py-2 transition-all focus:border-transparent focus:ring-2 focus:ring-rose-gold;
   }
 
   .email-editor-textarea {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent resize-none transition-all;
+    @apply w-full resize-none rounded-lg border border-gray-300 px-4 py-2 transition-all focus:border-transparent focus:ring-2 focus:ring-rose-gold;
   }
 
   .email-editor-button {
-    @apply px-4 py-2 rounded-lg font-medium transition-colors;
+    @apply rounded-lg px-4 py-2 font-medium transition-colors;
   }
 
   .email-editor-button-primary {
@@ -35,11 +35,11 @@
   }
 
   .email-preview-container {
-    @apply bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg;
+    @apply overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg;
   }
 
   .email-preview-header {
-    @apply bg-gray-50 px-4 py-3 border-b border-gray-200;
+    @apply border-b border-gray-200 bg-gray-50 px-4 py-3;
   }
 
   .email-preview-content {
@@ -47,7 +47,7 @@
   }
 
   .email-preview-footer {
-    @apply bg-gray-50 px-4 py-3 border-t border-gray-200 flex justify-between items-center;
+    @apply flex items-center justify-between border-t border-gray-200 bg-gray-50 px-4 py-3;
   }
 }
 

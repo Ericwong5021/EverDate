@@ -42,7 +42,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">字体样式</label>
         <div className="flex flex-wrap gap-2">
-          {FONT_OPTIONS.map((font) => (
+          {FONT_OPTIONS.map((font: { name: string; value: string }) => (
             <button
               key={font.value}
               onClick={() => handleFontChange(font.value)}
@@ -76,7 +76,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">文字颜色</label>
         <div className="flex flex-wrap gap-2">
-          {COLOR_OPTIONS.map((color) => (
+          {COLOR_OPTIONS.map((color: { name: string; value: string }) => (
             <button
               key={color.value}
               onClick={() => handleColorChange(color.value)}
@@ -95,7 +95,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">背景颜色</label>
         <div className="flex flex-wrap gap-2">
-          {COLOR_OPTIONS.map((color) => (
+          {COLOR_OPTIONS.map((color: { name: string; value: string }) => (
             <button
               key={color.value}
               onClick={() => handleBackgroundColorChange(color.value)}
@@ -124,7 +124,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">强调色</label>
         <div className="flex flex-wrap gap-2">
-          {COLOR_OPTIONS.map((color) => (
+          {COLOR_OPTIONS.map((color: { name: string; value: string }) => (
             <button
               key={color.value}
               onClick={() => handleAccentColorChange(color.value)}
@@ -143,7 +143,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">布局样式</label>
         <div className="grid grid-cols-3 gap-2">
-          {LAYOUT_OPTIONS.map((layout) => (
+          {LAYOUT_OPTIONS.map((layout: { id: string; name: string; description: string }) => (
             <button
               key={layout.id}
               onClick={() => handleLayoutChange(layout.id as "standard" | "centered" | "minimal")}
