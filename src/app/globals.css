@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-wine: #722F37;
+    --color-wine-light: #8B3A44;
+    --color-wine-dark: #5A252C;
+    --color-rose-gold: #B76E79;
+    --color-cream: #FFFDD0;
+    --color-cream-light: #FFFDE7;
+  }
+}
+
+@layer components {
+  .email-editor-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent transition-all;
+  }
+
+  .email-editor-textarea {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-gold focus:border-transparent resize-none transition-all;
+  }
+
+  .email-editor-button {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors;
+  }
+
+  .email-editor-button-primary {
+    @apply bg-rose-gold text-white hover:bg-wine;
+  }
+
+  .email-editor-button-secondary {
+    @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+  }
+
+  .email-preview-container {
+    @apply bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg;
+  }
+
+  .email-preview-header {
+    @apply bg-gray-50 px-4 py-3 border-b border-gray-200;
+  }
+
+  .email-preview-content {
+    @apply p-6;
+  }
+
+  .email-preview-footer {
+    @apply bg-gray-50 px-4 py-3 border-t border-gray-200 flex justify-between items-center;
+  }
+}
+
+@layer utilities {
+  .text-wine {
+    color: var(--color-wine);
+  }
+
+  .bg-wine {
+    background-color: var(--color-wine);
+  }
+
+  .text-rose-gold {
+    color: var(--color-rose-gold);
+  }
+
+  .bg-rose-gold {
+    background-color: var(--color-rose-gold);
+  }
+
+  .border-rose-gold {
+    border-color: var(--color-rose-gold);
+  }
+
+  .ring-rose-gold {
+    --tw-ring-color: var(--color-rose-gold);
+  }
+
+  .hover\:bg-wine:hover {
+    background-color: var(--color-wine);
+  }
+
+  .hover\:text-rose-gold:hover {
+    color: var(--color-rose-gold);
+  }
+
+  .hover\:border-rose-gold:hover {
+    border-color: var(--color-rose-gold);
+  }
+}
