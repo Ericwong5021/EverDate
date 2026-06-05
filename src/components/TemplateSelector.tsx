@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { EmailTemplate } from "@/types";
+import type { EmailTemplate } from "@/types";
 
 interface TemplateSelectorProps {
   templates: EmailTemplate[];

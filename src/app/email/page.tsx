@@ -1,122 +1,171 @@
 "use client";
 
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { useState } from "react";
+import type { EmailEditor, EmailStyle, EmailPreview } from "@/types";
+import { EMAIL_TEMPLATES } from "@/data/emailTemplates";
+import EmailEditorComponent from "@/components/EmailEditorComponent";
+import EmailPreviewComponent from "@/components/EmailPreviewComponent";
+import StyleEditorComponent from "@/components/StyleEditorComponent";
+import SendTimePicker from "@/components/SendTimePicker";
+import RecipientEmailInput from "@/components/RecipientEmailInput";
+import TemplateSelector from "@/components/TemplateSelector";
 
-export default function EmailPreviewPage() {
+const DEFAULT_STYLE: EmailStyle = {
+  fontFamily: "inherit",
+  fontSize: 16,
+  textColor: "#333333",
+  backgroundColor: "#FFFFFF",
+  accentColor: "#722F37",
+  layout: "standard",
+  headerStyle: "default",
+};
+
+export default function EmailPage() {
+  const [editor, setEditor] = useState<EmailEditor>({
+    subject: "",
+    body: "",
+    photos: [],
+    scheduledAt: "",
+    recipientEmail: "",
+    templateId: "classic",
+    style: DEFAULT_STYLE,
+  });
+
+  const [activeTab, setActiveTab] = useState<"editor" | "style" | "time" | "recipient">("editor");
+
+  const handleEditorChange = (newEditor: EmailEditor) => {
+    setEditor(newEditor);
+  };
+
+  const handleStyleChange = (style: EmailStyle) => {
+    setEditor({ ...editor, style });
+  };
+
+  const handleTimeChange = (time: string) => {
+    setEditor({ ...editor, scheduledAt: time });
+  };
+
+  const handleEmailChange = (email: string) => {
+    setEditor({ ...editor, recipientEmail: email });
+  };
+
+  const handleTemplateSelect = (template: (typeof EMAIL_TEMPLATES)[0]) => {
+    setEditor({
+      ...editor,
+      templateId: template.id,
+      subject: template.subject,
+      body: template.body,
+    });
+  };
+
+  const handleSave = () => {
+    console.log("保存邮件配置:", editor);
+    alert("邮件配置已保存！");
+  };
+
+  const handleSendTest = () => {
+    if (!editor.recipientEmail) {
+      alert("请先设置收件人邮箱");
+      return;
+    }
+    console.log("发送测试邮件:", editor);
+    alert("测试邮件已发送！");
+  };
+
+  const previewData: EmailPreview = {
+    subject: editor.subject,
+    body: editor.body,
+    photos: editor.photos,
+    recipientEmail: editor.recipientEmail,
+    scheduledAt: editor.scheduledAt,
+    style: editor.style,
+  };
+
   return (
-    <main>
-      <Navbar />
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <h1 className="text-wine text-2xl font-bold">邮件预览与编辑</h1>
+          <p className="mt-1 text-sm text-gray-500">自定义邮件内容，预览最终效果，设置发送时间</p>
+        </div>
+      </header>
 
-      <section className="min-h-screen pt-24 pb-16">
-        <div className="container max-w-3xl">
-          <div className="mb-12 text-center">
-            <Badge variant="wine" className="mb-4">
-              惊喜邮件
-            </Badge>
-            <h1 className="mb-3 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
-              预览你的惊喜邮件
-            </h1>
-            <p className="font-[var(--font-body)] text-[var(--color-cream-600)]">
-              这是对方将会收到的邮件效果
-            </p>
+      <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="space-y-6">
+            <div className="rounded-lg bg-white p-6 shadow-sm">
+              <div className="mb-6 flex space-x-1 border-b border-gray-200">
+                {[
+                  { id: "editor", name: "邮件内容" },
+                  { id: "style", name: "样式设置" },
+                  { id: "time", name: "发送时间" },
+                  { id: "recipient", name: "收件人" },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as typeof activeTab)}
+                    className={`border-b-2 px-4 py-2 text-sm font-medium transition-colors ${
+                      activeTab === tab.id
+                        ? "border-rose-gold text-rose-gold"
+                        : "border-transparent text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    {tab.name}
+                  </button>
+                ))}
+              </div>
+
+              {activeTab === "editor" && (
+                <div className="space-y-6">
+                  <TemplateSelector
+                    templates={EMAIL_TEMPLATES}
+                    selectedTemplateId={editor.templateId}
+                    onTemplateSelect={handleTemplateSelect}
+                  />
+                  <EmailEditorComponent editor={editor} onEditorChange={handleEditorChange} />
+                </div>
+              )}
+
+              {activeTab === "style" && (
+                <StyleEditorComponent style={editor.style} onStyleChange={handleStyleChange} />
+              )}
+
+              {activeTab === "time" && (
+                <SendTimePicker scheduledAt={editor.scheduledAt} onTimeChange={handleTimeChange} />
+              )}
+
+              {activeTab === "recipient" && (
+                <RecipientEmailInput
+                  email={editor.recipientEmail}
+                  onEmailChange={handleEmailChange}
+                />
+              )}
+            </div>
+
+            <div className="flex space-x-4">
+              <button
+                onClick={handleSave}
+                className="flex-1 rounded-lg bg-gray-200 px-4 py-3 font-medium text-gray-700 transition-colors hover:bg-gray-300"
+              >
+                保存配置
+              </button>
+              <button
+                onClick={handleSendTest}
+                className="bg-rose-gold hover:bg-wine flex-1 rounded-lg px-4 py-3 font-medium text-white transition-colors"
+              >
+                发送测试邮件
+              </button>
+            </div>
           </div>
 
-          {/* Email preview */}
-          <Card variant="elevated" className="mb-8 overflow-hidden p-0">
-            {/* Email header bar */}
-            <div className="flex items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-cream-100)] px-6 py-3">
-              <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-wine-100)] text-sm font-[var(--font-ui)] text-[var(--color-wine-800)]">
-                  E
-                </div>
-                <div>
-                  <p className="text-sm font-[var(--font-ui)] font-medium text-[var(--color-primary)]">
-                    EverDate
-                  </p>
-                  <p className="text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
-                    to: yourlove@email.com
-                  </p>
-                </div>
-              </div>
-              <span className="text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
-                2026.10.21
-              </span>
+          <div className="lg:sticky lg:top-6 lg:self-start">
+            <div className="rounded-lg bg-white p-6 shadow-sm">
+              <h2 className="mb-4 text-lg font-semibold text-gray-800">实时预览</h2>
+              <EmailPreviewComponent preview={previewData} />
             </div>
-
-            {/* Email body - letter style */}
-            <div className="p-8 sm:p-12">
-              {/* Photo area */}
-              <div
-                className="relative mb-8 h-48 w-full overflow-hidden rounded-[16px]"
-                style={{
-                  background:
-                    "linear-gradient(135deg, var(--color-wine-100), var(--color-gold-100), var(--color-cream-200))",
-                }}
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-5xl opacity-30">♡</span>
-                </div>
-                <div className="absolute right-3 bottom-3">
-                  <span className="rounded-full bg-[var(--color-cream-50)]/80 px-2 py-1 text-xs font-[var(--font-ui)] text-[var(--color-cream-600)]">
-                    📷 我们的合照
-                  </span>
-                </div>
-              </div>
-
-              {/* Gold bordered letter */}
-              <div className="relative mb-8 rounded-[16px] border border-[var(--color-gold-200)] p-6 sm:p-8">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--color-cream-50)] px-4">
-                  <span className="text-xs font-[var(--font-ui)] text-[var(--color-secondary)]">
-                    ✦ 一封给你的信 ✦
-                  </span>
-                </div>
-
-                <h2 className="mt-2 mb-6 text-center text-2xl font-[var(--font-title)] text-[var(--color-primary)]">
-                  写给最重要的人
-                </h2>
-
-                <div className="space-y-4 text-sm leading-relaxed font-[var(--font-body)] text-[var(--color-cream-700)] sm:text-base">
-                  <p>亲爱的，</p>
-                  <p>
-                    今天是我们在一起的第 1278 天。从第一次见面到现在，每一天都因为有你而变得不同。
-                  </p>
-                  <p>你是我生命中最温柔的存在，是我每天醒来的理由，也是我每晚入睡前最后的牵挂。</p>
-                  <p>感谢你出现在我的生命里，感谢你让平凡的日子变得闪闪发光。</p>
-                  <p>我爱你，不止今天，而是每一个明天。</p>
-                </div>
-
-                <div className="mt-8 text-right">
-                  <p className="text-lg font-[var(--font-title)] text-[var(--color-primary)] italic">
-                    永远爱你的人
-                  </p>
-                  <p className="mt-1 text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
-                    2026.10.21
-                  </p>
-                </div>
-              </div>
-
-              {/* Footer */}
-              <div className="text-center text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
-                <p>由 EverDate 为你送达 ♡</p>
-                <p className="mt-1">让爱意准时抵达</p>
-              </div>
-            </div>
-          </Card>
-
-          <div className="flex justify-center gap-4">
-            <Button size="lg">确认发送</Button>
-            <Button size="lg" variant="secondary">
-              编辑邮件
-            </Button>
           </div>
         </div>
-      </section>
-
-      <Footer />
-    </main>
+      </main>
+    </div>
   );
 }

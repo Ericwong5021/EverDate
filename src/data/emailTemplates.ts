@@ -1,4 +1,4 @@
-import { EmailTemplate } from "@/types";
+import type { EmailTemplate } from "@/types";
 
 export const EMAIL_TEMPLATES: EmailTemplate[] = [
   {

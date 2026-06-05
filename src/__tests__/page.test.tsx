@@ -1,11 +1,15 @@
 import { describe, it, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
+import Home from "@/app/page";
 
-describe("EverDate App", () => {
-  it("should be defined", () => {
-    expect(true).toBe(true);
+describe("Home Page", () => {
+  it("renders the title", () => {
+    render(<Home />);
+    expect(screen.getByText("EverDate")).toBeInTheDocument();
   });
 
-  it("should pass basic math", () => {
-    expect(1 + 1).toBe(2);
+  it("renders the subtitle", () => {
+    render(<Home />);
+    expect(screen.getByText("纪念日惊喜助手")).toBeInTheDocument();
   });
 });

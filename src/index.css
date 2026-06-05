@@ -16,8 +16,8 @@
   --color-cream: #fdf8f5;
   --color-cream-dark: #f5ece6;
 
-  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
-  --font-body: 'Noto Serif SC', 'Playfair Display', Georgia, serif;
+  --font-display: "Playfair Display", "Noto Serif SC", Georgia, serif;
+  --font-body: "Noto Serif SC", "Playfair Display", Georgia, serif;
 }
 
 * {
