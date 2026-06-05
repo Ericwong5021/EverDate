@@ -9,16 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        rose: {
-          gold: "#B76E79",
+        "rose-gold": {
+          DEFAULT: "#C9A46A",
+          light: "#d4b8a0",
+          pale: "#E8C7C8",
         },
         wine: {
-          DEFAULT: "#722F37",
-          light: "#8B3A44",
-          dark: "#5A252C",
+          DEFAULT: "#5A1F2B",
+          red: "#5A1F2B",
+          light: "#7a3040",
+          dark: "#3a0d19",
         },
         cream: {
-          DEFAULT: "#FFFDD0",
+          DEFAULT: "#FFF8F1",
+          warm: "#F4E8DA",
           light: "#FFFDE7",
         },
       },
