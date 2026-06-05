@@ -1,19 +1,14 @@
 "use client";
 
-import React, { useRef } from "react";
-import { EmailEditor, EmailStyle } from "@/types";
+import { useRef } from "react";
+import type { EmailEditor } from "@/types";
 
 interface EmailEditorProps {
   editor: EmailEditor;
   onEditorChange: (editor: EmailEditor) => void;
-  onStyleChange: (style: EmailStyle) => void;
 }
 
-export default function EmailEditorComponent({
-  editor,
-  onEditorChange,
-  onStyleChange,
-}: EmailEditorProps) {
+export default function EmailEditorComponent({ editor, onEditorChange }: EmailEditorProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubjectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,7 +61,6 @@ export default function EmailEditorComponent({
         <div className="flex flex-wrap gap-4">
           {editor.photos.map((photo, index) => (
             <div key={index} className="group relative">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={photo}
                 alt={`照片 ${index + 1}`}

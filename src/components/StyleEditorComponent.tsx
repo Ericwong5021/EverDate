@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { EmailStyle, FONT_OPTIONS, LAYOUT_OPTIONS, COLOR_OPTIONS } from "@/types";
+import type { EmailStyle } from "@/types";
+import { FONT_OPTIONS, LAYOUT_OPTIONS, COLOR_OPTIONS } from "@/types";
 
 interface StyleEditorProps {
   style: EmailStyle;

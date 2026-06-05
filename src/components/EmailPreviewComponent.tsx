@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { EmailPreview } from "@/types";
+import type { EmailPreview } from "@/types";
 
 interface EmailPreviewProps {
   preview: EmailPreview;
@@ -76,7 +75,6 @@ export default function EmailPreviewComponent({ preview }: EmailPreviewProps) {
         {preview.photos.length > 0 && (
           <div className="mb-6 grid grid-cols-2 gap-4">
             {preview.photos.map((photo, index) => (
-              /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 key={index}
                 src={photo}
