@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AnniversaryForm from "../components/AnniversaryForm";
 
 export default function HomePage() {
@@ -32,6 +33,20 @@ export default function HomePage() {
           </h2>
           <AnniversaryForm />
         </div>
+
+        {/* AI Blessing Link */}
+        <Link
+          to="/blessing"
+          className="mt-4 block rounded-2xl border border-rose-200 bg-gradient-to-r from-rose-50 to-pink-50 p-4 text-center transition-all hover:from-rose-100 hover:to-pink-100 hover:shadow-lg"
+        >
+          <div className="mb-2 text-2xl">✨</div>
+          <div className="font-medium text-rose-700" style={{ fontFamily: "var(--font-display)" }}>
+            AI 祝福语生成
+          </div>
+          <div className="mt-1 text-sm text-rose-500" style={{ fontFamily: "var(--font-body)" }}>
+            为你的纪念日生成专属祝福语
+          </div>
+        </Link>
 
         {/* Footer */}
         <p
