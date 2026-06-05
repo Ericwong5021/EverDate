@@ -12,23 +12,25 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-sm font-medium text-[var(--color-primary)] mb-2 font-[var(--font-ui)]">
+          <label className="mb-2 block text-sm font-[var(--font-ui)] font-medium text-[var(--color-primary)]">
             {label}
           </label>
         )}
         <textarea
           ref={ref}
-          className={`w-full px-4 py-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-cream-50)] text-[var(--color-foreground)] font-[var(--font-body)] placeholder:text-[var(--color-cream-400)] transition-all duration-300 focus:outline-none focus:border-[var(--color-secondary)] focus:shadow-[var(--shadow-gold)] resize-y min-h-[120px] ${
+          className={`min-h-[120px] w-full resize-y rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-cream-50)] px-4 py-3 font-[var(--font-body)] text-[var(--color-foreground)] transition-all duration-300 placeholder:text-[var(--color-cream-400)] focus:border-[var(--color-secondary)] focus:shadow-[var(--shadow-gold)] focus:outline-none ${
             error ? "border-[var(--color-wine-700)]" : ""
           } ${className}`}
           {...props}
         />
         {error && (
-          <p className="mt-1.5 text-sm text-[var(--color-wine-700)] font-[var(--font-ui)]">{error}</p>
+          <p className="mt-1.5 text-sm font-[var(--font-ui)] text-[var(--color-wine-700)]">
+            {error}
+          </p>
         )}
       </div>
     );
-  }
+  },
 );
 
 Textarea.displayName = "Textarea";

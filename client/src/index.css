@@ -16,70 +16,63 @@
     @apply bg-cream-50 text-warm-900 font-sans antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full
-           bg-wine-700 text-white font-medium
-           hover:bg-wine-800 transition-colors duration-200
-           focus:outline-none focus:ring-2 focus:ring-wine-500 focus:ring-offset-2;
+    @apply bg-wine-700 hover:bg-wine-800 focus:ring-wine-500 inline-flex items-center justify-center rounded-full px-6 py-3 font-medium text-white transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full
-           border-2 border-wine-700 text-wine-700 font-medium
-           hover:bg-wine-50 transition-colors duration-200
-           focus:outline-none focus:ring-2 focus:ring-wine-500 focus:ring-offset-2;
+    @apply border-wine-700 text-wine-700 hover:bg-wine-50 focus:ring-wine-500 inline-flex items-center justify-center rounded-full border-2 px-6 py-3 font-medium transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full
-           text-wine-700 font-medium
-           hover:bg-wine-50 transition-colors duration-200
-           focus:outline-none focus:ring-2 focus:ring-wine-500 focus:ring-offset-2;
+    @apply text-wine-700 hover:bg-wine-50 focus:ring-wine-500 inline-flex items-center justify-center rounded-full px-6 py-3 font-medium transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none;
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow-sm border border-warm-100 p-6;
+    @apply border-warm-100 rounded-2xl border bg-white p-6 shadow-sm;
   }
 
   .card-elevated {
-    @apply bg-white rounded-2xl shadow-lg border border-warm-100 p-8;
+    @apply border-warm-100 rounded-2xl border bg-white p-8 shadow-lg;
   }
 
   .input-base {
-    @apply w-full px-4 py-3 rounded-xl border border-warm-200
-           bg-white text-warm-900 placeholder-warm-400
-           focus:outline-none focus:ring-2 focus:ring-wine-500 focus:border-transparent
-           transition-all duration-200;
+    @apply border-warm-200 text-warm-900 placeholder-warm-400 focus:ring-wine-500 w-full rounded-xl border bg-white px-4 py-3 transition-all duration-200 focus:border-transparent focus:ring-2 focus:outline-none;
   }
 
   .label-base {
-    @apply block text-sm font-medium text-warm-700 mb-2;
+    @apply text-warm-700 mb-2 block text-sm font-medium;
   }
 
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20;
+    @apply px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20;
   }
 
   .container-wide {
-    @apply max-w-7xl mx-auto;
+    @apply mx-auto max-w-7xl;
   }
 
   .gradient-wine {
-    @apply bg-gradient-to-br from-wine-600 to-wine-800;
+    @apply from-wine-600 to-wine-800 bg-gradient-to-br;
   }
 
   .gradient-warm {
-    @apply bg-gradient-to-br from-cream-100 to-warm-100;
+    @apply from-cream-100 to-warm-100 bg-gradient-to-br;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-wine-600 to-wine-800;
+    @apply from-wine-600 to-wine-800 bg-gradient-to-r bg-clip-text text-transparent;
   }
 }
 

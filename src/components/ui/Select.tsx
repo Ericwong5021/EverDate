@@ -13,13 +13,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-sm font-medium text-[var(--color-primary)] mb-2 font-[var(--font-ui)]">
+          <label className="mb-2 block text-sm font-[var(--font-ui)] font-medium text-[var(--color-primary)]">
             {label}
           </label>
         )}
         <select
           ref={ref}
-          className={`w-full px-4 py-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-cream-50)] text-[var(--color-foreground)] font-[var(--font-body)] transition-all duration-300 focus:outline-none focus:border-[var(--color-secondary)] focus:shadow-[var(--shadow-gold)] appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2393745c%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:20px] bg-[right_12px_center] bg-no-repeat pr-10 ${
+          className={`w-full appearance-none rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-cream-50)] bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2393745c%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:20px] bg-[right_12px_center] bg-no-repeat px-4 py-3 pr-10 font-[var(--font-body)] text-[var(--color-foreground)] transition-all duration-300 focus:border-[var(--color-secondary)] focus:shadow-[var(--shadow-gold)] focus:outline-none ${
             error ? "border-[var(--color-wine-700)]" : ""
           } ${className}`}
           {...props}
@@ -31,11 +31,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ))}
         </select>
         {error && (
-          <p className="mt-1.5 text-sm text-[var(--color-wine-700)] font-[var(--font-ui)]">{error}</p>
+          <p className="mt-1.5 text-sm font-[var(--font-ui)] text-[var(--color-wine-700)]">
+            {error}
+          </p>
         )}
       </div>
     );
-  }
+  },
 );
 
 Select.displayName = "Select";

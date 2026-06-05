@@ -2,22 +2,22 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--color-cream-900)] text-[var(--color-cream-200)] py-16">
+    <footer className="bg-[var(--color-cream-900)] py-16 text-[var(--color-cream-200)]">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="font-[var(--font-title)] text-2xl font-semibold text-[var(--color-cream-50)] mb-4">
+            <h3 className="mb-4 text-2xl font-[var(--font-title)] font-semibold text-[var(--color-cream-50)]">
               EverDate
             </h3>
-            <p className="text-sm leading-relaxed text-[var(--color-cream-400)] max-w-sm font-[var(--font-body)]">
+            <p className="max-w-sm text-sm leading-relaxed font-[var(--font-body)] text-[var(--color-cream-400)]">
               让爱意准时抵达。一个帮你认真准备爱的仪式的服务。
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-[var(--font-ui)] text-sm font-medium text-[var(--color-cream-100)] mb-4 uppercase tracking-wider">
+            <h4 className="mb-4 text-sm font-[var(--font-ui)] font-medium tracking-wider text-[var(--color-cream-100)] uppercase">
               产品
             </h4>
             <ul className="space-y-2">
@@ -25,7 +25,7 @@ export function Footer() {
                 <li key={item}>
                   <Link
                     href="#"
-                    className="text-sm text-[var(--color-cream-400)] hover:text-[var(--color-gold-400)] transition-colors no-underline font-[var(--font-ui)]"
+                    className="text-sm font-[var(--font-ui)] text-[var(--color-cream-400)] no-underline transition-colors hover:text-[var(--color-gold-400)]"
                   >
                     {item}
                   </Link>
@@ -35,7 +35,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-[var(--font-ui)] text-sm font-medium text-[var(--color-cream-100)] mb-4 uppercase tracking-wider">
+            <h4 className="mb-4 text-sm font-[var(--font-ui)] font-medium tracking-wider text-[var(--color-cream-100)] uppercase">
               支持
             </h4>
             <ul className="space-y-2">
@@ -43,7 +43,7 @@ export function Footer() {
                 <li key={item}>
                   <Link
                     href="#"
-                    className="text-sm text-[var(--color-cream-400)] hover:text-[var(--color-gold-400)] transition-colors no-underline font-[var(--font-ui)]"
+                    className="text-sm font-[var(--font-ui)] text-[var(--color-cream-400)] no-underline transition-colors hover:text-[var(--color-gold-400)]"
                   >
                     {item}
                   </Link>
@@ -53,13 +53,19 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="section-divider mt-12 mb-8" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(201,164,106,0.2) 20%, rgba(201,164,106,0.4) 50%, rgba(201,164,106,0.2) 80%, transparent 100%)" }} />
+        <div
+          className="section-divider mt-12 mb-8"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, rgba(201,164,106,0.2) 20%, rgba(201,164,106,0.4) 50%, rgba(201,164,106,0.2) 80%, transparent 100%)",
+          }}
+        />
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[var(--color-cream-500)] font-[var(--font-ui)]">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <p className="text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
             © 2026 EverDate. 用心纪念每一个重要时刻。
           </p>
-          <p className="text-xs text-[var(--color-cream-600)] font-[var(--font-ui)]">
+          <p className="text-xs font-[var(--font-ui)] text-[var(--color-cream-600)]">
             少一点工具感，多一点仪式感。
           </p>
         </div>

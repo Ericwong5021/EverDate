@@ -38,14 +38,16 @@ export default function CreatePage() {
     <main>
       <Navbar />
 
-      <section className="pt-24 pb-16 min-h-screen">
+      <section className="min-h-screen pt-24 pb-16">
         <div className="container max-w-2xl">
-          <div className="text-center mb-12">
-            <Badge variant="gold" className="mb-4">创建纪念日</Badge>
-            <h1 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-3">
+          <div className="mb-12 text-center">
+            <Badge variant="gold" className="mb-4">
+              创建纪念日
+            </Badge>
+            <h1 className="mb-3 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
               准备你的惊喜
             </h1>
-            <p className="text-[var(--color-cream-600)] font-[var(--font-body)]">
+            <p className="font-[var(--font-body)] text-[var(--color-cream-600)]">
               填写以下信息，我们会帮你打造一份专属的纪念日惊喜
             </p>
           </div>
@@ -66,7 +68,7 @@ export default function CreatePage() {
                 onChange={(e) => handleChange("date", e.target.value)}
               />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Input
                   label="对方昵称"
                   placeholder="例：宝贝"
@@ -97,24 +99,24 @@ export default function CreatePage() {
               />
 
               <div>
-                <label className="block text-sm font-medium text-[var(--color-primary)] mb-2 font-[var(--font-ui)]">
+                <label className="mb-2 block text-sm font-[var(--font-ui)] font-medium text-[var(--color-primary)]">
                   上传照片
                 </label>
                 <div
-                  className="border-2 border-dashed border-[var(--color-border)] rounded-[var(--radius-xl)] p-8 text-center hover:border-[var(--color-secondary)] transition-colors cursor-pointer"
+                  className="cursor-pointer rounded-[var(--radius-xl)] border-2 border-dashed border-[var(--color-border)] p-8 text-center transition-colors hover:border-[var(--color-secondary)]"
                   onClick={() => {
                     // In real app, open file picker
                     setPhoto("/placeholder-photo.jpg");
                   }}
                 >
                   {photo ? (
-                    <p className="text-sm text-[var(--color-secondary)] font-[var(--font-ui)]">
+                    <p className="text-sm font-[var(--font-ui)] text-[var(--color-secondary)]">
                       ✓ 照片已选择
                     </p>
                   ) : (
                     <>
-                      <div className="text-3xl mb-2 text-[var(--color-cream-400)]">📷</div>
-                      <p className="text-sm text-[var(--color-cream-500)] font-[var(--font-ui)]">
+                      <div className="mb-2 text-3xl text-[var(--color-cream-400)]">📷</div>
+                      <p className="text-sm font-[var(--font-ui)] text-[var(--color-cream-500)]">
                         点击上传一张特别的照片
                       </p>
                     </>
