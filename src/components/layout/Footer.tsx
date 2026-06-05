@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -24,7 +24,7 @@ export function Footer() {
               {["创建纪念日", "AI 祝福语", "惊喜邮件", "价格"].map((item) => (
                 <li key={item}>
                   <Link
-                    href="#"
+                    to="#"
                     className="text-sm font-[var(--font-ui)] text-[var(--color-cream-400)] no-underline transition-colors hover:text-[var(--color-gold-400)]"
                   >
                     {item}
@@ -42,7 +42,7 @@ export function Footer() {
               {["常见问题", "联系我们", "隐私政策", "服务条款"].map((item) => (
                 <li key={item}>
                   <Link
-                    href="#"
+                    to="#"
                     className="text-sm font-[var(--font-ui)] text-[var(--color-cream-400)] no-underline transition-colors hover:text-[var(--color-gold-400)]"
                   >
                     {item}

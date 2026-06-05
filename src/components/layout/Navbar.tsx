@@ -1,7 +1,5 @@
-"use client";
-
-import Link from "next/link";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 
 export function Navbar() {
@@ -11,7 +9,7 @@ export function Navbar() {
     <nav className="fixed top-0 right-0 left-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-cream-50)]/80 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 no-underline">
+        <Link to="/" className="flex items-center gap-2 no-underline">
           <span className="text-xl font-[var(--font-title)] font-semibold tracking-wide text-[var(--color-primary)]">
             EverDate
           </span>
@@ -20,13 +18,13 @@ export function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden items-center gap-8 md:flex">
           <Link
-            href="/"
+            to="/"
             className="text-sm font-[var(--font-ui)] text-[var(--color-cream-700)] no-underline transition-colors hover:text-[var(--color-primary)]"
           >
             首页
           </Link>
           <Link
-            href="/create"
+            to="/create"
             className="text-sm font-[var(--font-ui)] text-[var(--color-cream-700)] no-underline transition-colors hover:text-[var(--color-primary)]"
           >
             创建纪念日
@@ -63,14 +61,14 @@ export function Navbar() {
       {menuOpen && (
         <div className="animate-fade-in space-y-3 border-t border-[var(--color-border)] bg-[var(--color-cream-50)] px-4 py-4 md:hidden">
           <Link
-            href="/"
+            to="/"
             className="block py-2 text-sm font-[var(--font-ui)] text-[var(--color-cream-700)] no-underline"
             onClick={() => setMenuOpen(false)}
           >
             首页
           </Link>
           <Link
-            href="/create"
+            to="/create"
             className="block py-2 text-sm font-[var(--font-ui)] text-[var(--color-cream-700)] no-underline"
             onClick={() => setMenuOpen(false)}
           >
