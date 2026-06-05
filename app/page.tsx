@@ -4,31 +4,30 @@ import { useState, useEffect } from "react";
 
 function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-wine-800 via-wine-700 to-wine-600">
+    <section className="from-wine-800 via-wine-700 to-wine-600 relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-gradient-to-b">
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-rosegold-400 blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-rosegold-300 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-cream-200 blur-3xl" />
+        <div className="bg-rosegold-400 absolute top-20 left-10 h-64 w-64 rounded-full blur-3xl" />
+        <div className="bg-rosegold-300 absolute right-10 bottom-20 h-80 w-80 rounded-full blur-3xl" />
+        <div className="bg-cream-200 absolute top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <p className="text-rosegold-300 text-sm tracking-[0.3em] uppercase mb-6 font-[family-name:var(--font-inter)]">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+        <p className="text-rosegold-300 mb-6 font-[family-name:var(--font-inter)] text-sm tracking-[0.3em] uppercase">
           EverDate
         </p>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-cream-100 mb-6 leading-tight font-[family-name:var(--font-noto-serif-sc)]">
+        <h1 className="text-cream-100 mb-6 font-[family-name:var(--font-noto-serif-sc)] text-5xl leading-tight font-bold md:text-7xl lg:text-8xl">
           让每一个纪念日
           <br />
-          <span className="bg-gradient-to-r from-rosegold-300 to-rosegold-400 bg-clip-text text-transparent">
+          <span className="from-rosegold-300 to-rosegold-400 bg-gradient-to-r bg-clip-text text-transparent">
             都被记住
           </span>
         </h1>
-        <p className="text-lg md:text-xl text-wine-200 max-w-2xl mx-auto mb-10 leading-relaxed font-[family-name:var(--font-noto-serif-sc)]">
-          智能纪念日管理，倒计时提醒、AI
-          祝福语生成、邮件投递——让爱与纪念永不褪色
+        <p className="text-wine-200 mx-auto mb-10 max-w-2xl font-[family-name:var(--font-noto-serif-sc)] text-lg leading-relaxed md:text-xl">
+          智能纪念日管理，倒计时提醒、AI 祝福语生成、邮件投递——让爱与纪念永不褪色
         </p>
         <a
           href="#pricing"
-          className="inline-block px-10 py-4 bg-gradient-to-r from-rosegold-500 to-rosegold-400 text-white rounded-full text-lg font-semibold hover:from-rosegold-600 hover:to-rosegold-500 transition-all duration-300 shadow-lg shadow-rosegold-500/30 hover:shadow-rosegold-500/50 font-[family-name:var(--font-noto-serif-sc)]"
+          className="from-rosegold-500 to-rosegold-400 hover:from-rosegold-600 hover:to-rosegold-500 shadow-rosegold-500/30 hover:shadow-rosegold-500/50 inline-block rounded-full bg-gradient-to-r px-10 py-4 font-[family-name:var(--font-noto-serif-sc)] text-lg font-semibold text-white shadow-lg transition-all duration-300"
         >
           立即创建纪念日
         </a>
@@ -36,7 +35,7 @@ function Hero() {
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <svg
-          className="w-6 h-6 text-rosegold-300"
+          className="text-rosegold-300 h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -56,12 +55,7 @@ function Hero() {
 const features = [
   {
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -71,17 +65,11 @@ const features = [
       </svg>
     ),
     title: "智能倒计时",
-    description:
-      "自动计算距纪念日的天数、小时、分钟，实时倒计时让你不错过任何重要时刻。",
+    description: "自动计算距纪念日的天数、小时、分钟，实时倒计时让你不错过任何重要时刻。",
   },
   {
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -91,17 +79,11 @@ const features = [
       </svg>
     ),
     title: "贴心提醒",
-    description:
-      "提前多日推送提醒通知，自定义提醒时间，再也不会忘记重要的纪念日。",
+    description: "提前多日推送提醒通知，自定义提醒时间，再也不会忘记重要的纪念日。",
   },
   {
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -111,17 +93,11 @@ const features = [
       </svg>
     ),
     title: "AI 祝福语",
-    description:
-      "输入你的心意，AI 为你生成独一无二的浪漫祝福语，让每一句话都充满温度。",
+    description: "输入你的心意，AI 为你生成独一无二的浪漫祝福语，让每一句话都充满温度。",
   },
   {
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -131,41 +107,39 @@ const features = [
       </svg>
     ),
     title: "邮件投递",
-    description:
-      "设定日期自动发送祝福邮件给TA，即使不在身边，爱也能准时抵达。",
+    description: "设定日期自动发送祝福邮件给TA，即使不在身边，爱也能准时抵达。",
   },
 ];
 
 function Features() {
   return (
-    <section className="py-24 px-6 bg-cream-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-rosegold-500 text-sm tracking-[0.2em] uppercase mb-3 font-[family-name:var(--font-inter)]">
+    <section className="bg-cream-50 px-6 py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-16 text-center">
+          <p className="text-rosegold-500 mb-3 font-[family-name:var(--font-inter)] text-sm tracking-[0.2em] uppercase">
             Features
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-wine-800 mb-4 font-[family-name:var(--font-noto-serif-sc)]">
+          <h2 className="text-wine-800 mb-4 font-[family-name:var(--font-noto-serif-sc)] text-3xl font-bold md:text-4xl">
             用心守护每一份纪念
           </h2>
-          <p className="text-wine-600/70 max-w-xl mx-auto font-[family-name:var(--font-noto-serif-sc)]">
-            从倒计时到祝福投递，EverDate
-            用科技温暖每一个值得铭记的瞬间
+          <p className="text-wine-600/70 mx-auto max-w-xl font-[family-name:var(--font-noto-serif-sc)]">
+            从倒计时到祝福投递，EverDate 用科技温暖每一个值得铭记的瞬间
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {features.map((feature, i) => (
             <div
               key={i}
-              className="group p-8 rounded-2xl bg-white border border-rosegold-100 hover:border-rosegold-300 transition-all duration-300 hover:shadow-xl hover:shadow-rosegold-200/40"
+              className="group border-rosegold-100 hover:border-rosegold-300 hover:shadow-rosegold-200/40 rounded-2xl border bg-white p-8 transition-all duration-300 hover:shadow-xl"
             >
-              <div className="w-14 h-14 rounded-xl bg-wine-50 flex items-center justify-center text-wine-600 mb-5 group-hover:bg-wine-600 group-hover:text-white transition-all duration-300">
+              <div className="bg-wine-50 text-wine-600 group-hover:bg-wine-600 mb-5 flex h-14 w-14 items-center justify-center rounded-xl transition-all duration-300 group-hover:text-white">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold text-wine-800 mb-3 font-[family-name:var(--font-noto-serif-sc)]">
+              <h3 className="text-wine-800 mb-3 font-[family-name:var(--font-noto-serif-sc)] text-xl font-bold">
                 {feature.title}
               </h3>
-              <p className="text-wine-600/70 leading-relaxed font-[family-name:var(--font-noto-serif-sc)]">
+              <p className="text-wine-600/70 font-[family-name:var(--font-noto-serif-sc)] leading-relaxed">
                 {feature.description}
               </p>
             </div>
@@ -178,35 +152,32 @@ function Features() {
 
 function Pricing() {
   return (
-    <section
-      id="pricing"
-      className="py-24 px-6 bg-gradient-to-b from-cream-100 to-cream-50"
-    >
-      <div className="max-w-lg mx-auto text-center">
-        <p className="text-rosegold-500 text-sm tracking-[0.2em] uppercase mb-3 font-[family-name:var(--font-inter)]">
+    <section id="pricing" className="from-cream-100 to-cream-50 bg-gradient-to-b px-6 py-24">
+      <div className="mx-auto max-w-lg text-center">
+        <p className="text-rosegold-500 mb-3 font-[family-name:var(--font-inter)] text-sm tracking-[0.2em] uppercase">
           Pricing
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-wine-800 mb-4 font-[family-name:var(--font-noto-serif-sc)]">
+        <h2 className="text-wine-800 mb-4 font-[family-name:var(--font-noto-serif-sc)] text-3xl font-bold md:text-4xl">
           简单透明的定价
         </h2>
         <p className="text-wine-600/70 mb-12 font-[family-name:var(--font-noto-serif-sc)]">
           一次付费，永久使用
         </p>
 
-        <div className="relative p-8 rounded-3xl bg-white border-2 border-wine-200 shadow-xl shadow-wine-100/50">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-wine-600 text-cream-100 text-xs rounded-full tracking-wider font-[family-name:var(--font-inter)]">
+        <div className="border-wine-200 shadow-wine-100/50 relative rounded-3xl border-2 bg-white p-8 shadow-xl">
+          <div className="bg-wine-600 text-cream-100 absolute -top-4 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 font-[family-name:var(--font-inter)] text-xs tracking-wider">
             推荐
           </div>
-          <h3 className="text-lg text-wine-600 mb-2 font-[family-name:var(--font-noto-serif-sc)]">
+          <h3 className="text-wine-600 mb-2 font-[family-name:var(--font-noto-serif-sc)] text-lg">
             EverDate 纪念日服务
           </h3>
-          <div className="flex items-baseline justify-center gap-1 mb-6">
-            <span className="text-lg text-wine-500">¥</span>
-            <span className="text-6xl font-bold text-wine-800 font-[family-name:var(--font-playfair)]">
+          <div className="mb-6 flex items-baseline justify-center gap-1">
+            <span className="text-wine-500 text-lg">¥</span>
+            <span className="text-wine-800 font-[family-name:var(--font-playfair)] text-6xl font-bold">
               9.9
             </span>
           </div>
-          <ul className="space-y-3 text-left text-wine-600 mb-8">
+          <ul className="text-wine-600 mb-8 space-y-3 text-left">
             {[
               "无限纪念日创建与管理",
               "智能倒计时与提醒推送",
@@ -219,7 +190,7 @@ function Pricing() {
                 className="flex items-center gap-3 font-[family-name:var(--font-noto-serif-sc)]"
               >
                 <svg
-                  className="w-5 h-5 text-wine-500 shrink-0"
+                  className="text-wine-500 h-5 w-5 shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -235,7 +206,7 @@ function Pricing() {
               </li>
             ))}
           </ul>
-          <button className="w-full py-4 rounded-full bg-wine-700 text-cream-100 font-semibold text-lg hover:bg-wine-800 transition-colors duration-300 shadow-lg shadow-wine-300/40 font-[family-name:var(--font-noto-serif-sc)]">
+          <button className="bg-wine-700 text-cream-100 hover:bg-wine-800 shadow-wine-300/40 w-full rounded-full py-4 font-[family-name:var(--font-noto-serif-sc)] text-lg font-semibold shadow-lg transition-colors duration-300">
             立即创建纪念日
           </button>
         </div>
@@ -246,17 +217,17 @@ function Pricing() {
 
 function CTA() {
   return (
-    <section className="py-24 px-6 bg-wine-800">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-cream-100 mb-6 font-[family-name:var(--font-noto-serif-sc)]">
+    <section className="bg-wine-800 px-6 py-24">
+      <div className="mx-auto max-w-3xl text-center">
+        <h2 className="text-cream-100 mb-6 font-[family-name:var(--font-noto-serif-sc)] text-3xl font-bold md:text-4xl">
           不要让爱在等待中褪色
         </h2>
-        <p className="text-wine-200 text-lg mb-10 max-w-xl mx-auto font-[family-name:var(--font-noto-serif-sc)]">
+        <p className="text-wine-200 mx-auto mb-10 max-w-xl font-[family-name:var(--font-noto-serif-sc)] text-lg">
           每一个纪念日都值得被用心对待。加入 EverDate，让重要的人和事永远被记住。
         </p>
         <a
           href="#pricing"
-          className="inline-block px-10 py-4 bg-gradient-to-r from-rosegold-400 to-rosegold-300 text-wine-800 rounded-full text-lg font-bold hover:from-rosegold-300 hover:to-rosegold-200 transition-all duration-300 shadow-lg shadow-rosegold-500/30 font-[family-name:var(--font-noto-serif-sc)]"
+          className="from-rosegold-400 to-rosegold-300 text-wine-800 hover:from-rosegold-300 hover:to-rosegold-200 shadow-rosegold-500/30 inline-block rounded-full bg-gradient-to-r px-10 py-4 font-[family-name:var(--font-noto-serif-sc)] text-lg font-bold shadow-lg transition-all duration-300"
         >
           立即开始
         </a>
@@ -267,16 +238,16 @@ function CTA() {
 
 function Footer() {
   return (
-    <footer className="py-12 px-6 bg-wine-900 text-wine-300">
-      <div className="max-w-6xl mx-auto text-center">
-        <p className="font-[family-name:var(--font-playfair)] text-2xl text-cream-200 mb-2 font-semibold tracking-wide">
+    <footer className="bg-wine-900 text-wine-300 px-6 py-12">
+      <div className="mx-auto max-w-6xl text-center">
+        <p className="text-cream-200 mb-2 font-[family-name:var(--font-playfair)] text-2xl font-semibold tracking-wide">
           EverDate
         </p>
-        <p className="text-sm text-wine-400 font-[family-name:var(--font-noto-serif-sc)]">
+        <p className="text-wine-400 font-[family-name:var(--font-noto-serif-sc)] text-sm">
           让每一个纪念日都被记住
         </p>
-        <div className="mt-8 pt-8 border-t border-wine-700/50">
-          <p className="text-xs text-wine-500 font-[family-name:var(--font-inter)]">
+        <div className="border-wine-700/50 mt-8 border-t pt-8">
+          <p className="text-wine-500 font-[family-name:var(--font-inter)] text-xs">
             &copy; {new Date().getFullYear()} EverDate. All rights reserved.
           </p>
         </div>
@@ -296,19 +267,19 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-wine-800/95 backdrop-blur-md shadow-lg shadow-wine-900/30 py-3"
+          ? "bg-wine-800/95 shadow-wine-900/30 py-3 shadow-lg backdrop-blur-md"
           : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <span className="font-[family-name:var(--font-playfair)] text-xl text-cream-100 font-semibold tracking-wide">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
+        <span className="text-cream-100 font-[family-name:var(--font-playfair)] text-xl font-semibold tracking-wide">
           EverDate
         </span>
         <a
           href="#pricing"
-          className="px-6 py-2 text-sm text-cream-200 border border-rosegold-400/50 rounded-full hover:bg-rosegold-400/20 transition-colors font-[family-name:var(--font-inter)]"
+          className="text-cream-200 border-rosegold-400/50 hover:bg-rosegold-400/20 rounded-full border px-6 py-2 font-[family-name:var(--font-inter)] text-sm transition-colors"
         >
           立即体验
         </a>

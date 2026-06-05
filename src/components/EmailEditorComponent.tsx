@@ -46,7 +46,7 @@ export default function EmailEditorComponent({
           value={editor.subject}
           onChange={handleSubjectChange}
           placeholder="输入邮件主题..."
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
+          className="focus:ring-rose-gold w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2"
         />
       </div>
 
@@ -57,7 +57,7 @@ export default function EmailEditorComponent({
           onChange={handleBodyChange}
           placeholder="输入邮件内容..."
           rows={8}
-          className="w-full resize-none rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
+          className="focus:ring-rose-gold w-full resize-none rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2"
         />
       </div>
 
@@ -74,7 +74,7 @@ export default function EmailEditorComponent({
               />
               <button
                 onClick={() => removePhoto(index)}
-                className="absolute -right-2 -top-2 h-6 w-6 rounded-full bg-red-500 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100"
+                className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-red-500 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100"
               >
                 ×
               </button>
@@ -82,7 +82,7 @@ export default function EmailEditorComponent({
           ))}
           <button
             onClick={() => fileInputRef.current?.click()}
-            className="flex h-24 w-24 flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 text-gray-500 transition-colors hover:border-rose-gold hover:text-rose-gold"
+            className="hover:border-rose-gold hover:text-rose-gold flex h-24 w-24 flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 text-gray-500 transition-colors"
           >
             <span className="text-2xl">+</span>
             <span className="text-xs">添加照片</span>

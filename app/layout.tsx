@@ -32,10 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="zh-CN"
-      className={`${playfair.variable} ${notoSerifSC.variable} ${inter.variable}`}
-    >
+    <html lang="zh-CN" className={`${playfair.variable} ${notoSerifSC.variable} ${inter.variable}`}>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
