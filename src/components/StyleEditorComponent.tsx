@@ -42,14 +42,14 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">字体样式</label>
         <div className="flex flex-wrap gap-2">
-          {FONT_OPTIONS.map((font) => (
+          {FONT_OPTIONS.map((font: { name: string; value: string }) => (
             <button
               key={font.value}
               onClick={() => handleFontChange(font.value)}
               className={`rounded-md border px-3 py-1 text-sm transition-colors ${
                 style.fontFamily === font.value
                   ? "border-rose-gold bg-rose-gold text-white"
-                  : "border-gray-300 bg-white text-gray-700 hover:border-rose-gold"
+                  : "hover:border-rose-gold border-gray-300 bg-white text-gray-700"
               }`}
               style={{ fontFamily: font.value }}
             >
@@ -69,14 +69,14 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
           max="24"
           value={style.fontSize}
           onChange={handleFontSizeChange}
-          className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-rose-gold"
+          className="accent-rose-gold h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200"
         />
       </div>
 
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">文字颜色</label>
         <div className="flex flex-wrap gap-2">
-          {COLOR_OPTIONS.map((color) => (
+          {COLOR_OPTIONS.map((color: { name: string; value: string }) => (
             <button
               key={color.value}
               onClick={() => handleColorChange(color.value)}
@@ -95,7 +95,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">背景颜色</label>
         <div className="flex flex-wrap gap-2">
-          {COLOR_OPTIONS.map((color) => (
+          {COLOR_OPTIONS.map((color: { name: string; value: string }) => (
             <button
               key={color.value}
               onClick={() => handleBackgroundColorChange(color.value)}
@@ -124,7 +124,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">强调色</label>
         <div className="flex flex-wrap gap-2">
-          {COLOR_OPTIONS.map((color) => (
+          {COLOR_OPTIONS.map((color: { name: string; value: string }) => (
             <button
               key={color.value}
               onClick={() => handleAccentColorChange(color.value)}
@@ -143,14 +143,14 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">布局样式</label>
         <div className="grid grid-cols-3 gap-2">
-          {LAYOUT_OPTIONS.map((layout) => (
+          {LAYOUT_OPTIONS.map((layout: { id: string; name: string; description: string }) => (
             <button
               key={layout.id}
               onClick={() => handleLayoutChange(layout.id as "standard" | "centered" | "minimal")}
               className={`rounded-lg border p-3 text-sm transition-colors ${
                 style.layout === layout.id
                   ? "border-rose-gold bg-rose-gold text-white"
-                  : "border-gray-300 bg-white text-gray-700 hover:border-rose-gold"
+                  : "hover:border-rose-gold border-gray-300 bg-white text-gray-700"
               }`}
             >
               <div className="font-medium">{layout.name}</div>
@@ -174,7 +174,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
               className={`rounded-lg border p-3 text-sm transition-colors ${
                 style.headerStyle === header.id
                   ? "border-rose-gold bg-rose-gold text-white"
-                  : "border-gray-300 bg-white text-gray-700 hover:border-rose-gold"
+                  : "hover:border-rose-gold border-gray-300 bg-white text-gray-700"
               }`}
             >
               <div className="font-medium">{header.name}</div>

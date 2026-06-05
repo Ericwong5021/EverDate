@@ -15,14 +15,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, message: "Retry executed" });
     }
 
-    return NextResponse.json(
-      { error: "Invalid action. Use 'run' or 'retry'" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Invalid action. Use 'run' or 'retry'" }, { status: 400 });
   } catch (error) {
-    return NextResponse.json(
-      { error: "Scheduler execution failed" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Scheduler execution failed" }, { status: 500 });
   }
 }

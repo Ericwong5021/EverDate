@@ -43,51 +43,35 @@ export default function LogsPage() {
   };
 
   if (loading) {
-    return <div className="text-center py-12 text-gray-500">加载中...</div>;
+    return <div className="py-12 text-center text-gray-500">加载中...</div>;
   }
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">发送记录</h1>
+      <h1 className="mb-6 text-2xl font-bold">发送记录</h1>
 
       {logs.length === 0 ? (
-        <div className="text-center py-16 text-gray-400">
+        <div className="py-16 text-center text-gray-400">
           <p className="text-lg">暂无发送记录</p>
         </div>
       ) : (
-        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="border-b border-gray-200 bg-gray-50">
               <tr>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">
-                  纪念日
-                </th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">
-                  收件人
-                </th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">
-                  计划时间
-                </th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">
-                  发送时间
-                </th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">
-                  状态
-                </th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">
-                  重试
-                </th>
-                <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">
-                  错误信息
-                </th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">纪念日</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">收件人</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">计划时间</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">发送时间</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">状态</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">重试</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-600">错误信息</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               {logs.map((log) => (
                 <tr key={log.id} className="hover:bg-gray-50">
-                  <td className="px-4 py-3 text-sm">
-                    {log.commemorative.title}
-                  </td>
+                  <td className="px-4 py-3 text-sm">{log.commemorative.title}</td>
                   <td className="px-4 py-3 text-sm text-gray-500">
                     {log.commemorative.recipientEmail}
                   </td>
@@ -95,21 +79,17 @@ export default function LogsPage() {
                     {new Date(log.scheduledFor).toLocaleDateString("zh-CN")}
                   </td>
                   <td className="px-4 py-3 text-sm text-gray-500">
-                    {log.sentAt
-                      ? new Date(log.sentAt).toLocaleString("zh-CN")
-                      : "-"}
+                    {log.sentAt ? new Date(log.sentAt).toLocaleString("zh-CN") : "-"}
                   </td>
                   <td className="px-4 py-3">
                     <span
-                      className={`text-xs px-2 py-1 rounded-full ${statusStyles[log.status] || "bg-gray-100 text-gray-800"}`}
+                      className={`rounded-full px-2 py-1 text-xs ${statusStyles[log.status] || "bg-gray-100 text-gray-800"}`}
                     >
                       {statusLabels[log.status] || log.status}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-500">
-                    {log.retryCount}
-                  </td>
-                  <td className="px-4 py-3 text-sm text-red-500 max-w-xs truncate">
+                  <td className="px-4 py-3 text-sm text-gray-500">{log.retryCount}</td>
+                  <td className="max-w-xs truncate px-4 py-3 text-sm text-red-500">
                     {log.errorMessage || "-"}
                   </td>
                 </tr>

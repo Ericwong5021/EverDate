@@ -10,9 +10,6 @@ export async function GET() {
     });
     return NextResponse.json(logs);
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to fetch email logs" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch email logs" }, { status: 500 });
   }
 }

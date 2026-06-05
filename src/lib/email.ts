@@ -23,11 +23,7 @@ function createTransporter() {
   });
 }
 
-function buildEmailHtml(
-  subject: string,
-  body: string,
-  photoUrl?: string
-): string {
+function buildEmailHtml(subject: string, body: string, photoUrl?: string): string {
   const photoSection = photoUrl
     ? `<div style="text-align:center;margin:20px 0"><img src="${photoUrl}" alt="纪念照片" style="max-width:100%;border-radius:8px" /></div>`
     : "";
@@ -52,10 +48,9 @@ export async function sendEmail(
   to: string,
   subject: string,
   body: string,
-  photoUrl?: string
+  photoUrl?: string,
 ): Promise<EmailSendResult> {
-  const from =
-    process.env.SENDGRID_FROM || process.env.SMTP_FROM || process.env.SMTP_USER;
+  const from = process.env.SENDGRID_FROM || process.env.SMTP_FROM || process.env.SMTP_USER;
 
   if (!from) {
     return { success: false, error: "No sender email configured" };
@@ -74,8 +69,7 @@ export async function sendEmail(
 
     return { success: true, messageId: info.messageId };
   } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Unknown email error";
+    const message = error instanceof Error ? error.message : "Unknown email error";
     return { success: false, error: message };
   }
 }

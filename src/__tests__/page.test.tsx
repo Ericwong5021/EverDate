@@ -10,6 +10,6 @@ describe("Home Page", () => {
 
   it("renders the subtitle", () => {
     render(<Home />);
-    expect(screen.getByText("纪念日惊喜助手")).toBeInTheDocument();
+    expect(screen.getByText("让每个纪念日都不被遗忘")).toBeInTheDocument();
   });
 });

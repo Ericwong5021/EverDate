@@ -33,7 +33,7 @@ export default function EmailEditorComponent({
   };
 
   const removePhoto = (index: number) => {
-    const newPhotos = editor.photos.filter((_, i) => i !== index);
+    const newPhotos = editor.photos.filter((_: string, i: number) => i !== index);
     onEditorChange({ ...editor, photos: newPhotos });
   };
 
@@ -46,7 +46,7 @@ export default function EmailEditorComponent({
           value={editor.subject}
           onChange={handleSubjectChange}
           placeholder="输入邮件主题..."
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
+          className="focus:ring-rose-gold w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2"
         />
       </div>
 
@@ -57,14 +57,14 @@ export default function EmailEditorComponent({
           onChange={handleBodyChange}
           placeholder="输入邮件内容..."
           rows={8}
-          className="w-full resize-none rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
+          className="focus:ring-rose-gold w-full resize-none rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2"
         />
       </div>
 
       <div>
         <label className="mb-2 block text-sm font-medium text-gray-700">照片附件</label>
         <div className="flex flex-wrap gap-4">
-          {editor.photos.map((photo, index) => (
+          {editor.photos.map((photo: string, index: number) => (
             <div key={index} className="group relative">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -82,7 +82,7 @@ export default function EmailEditorComponent({
           ))}
           <button
             onClick={() => fileInputRef.current?.click()}
-            className="flex h-24 w-24 flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 text-gray-500 transition-colors hover:border-rose-gold hover:text-rose-gold"
+            className="hover:border-rose-gold hover:text-rose-gold flex h-24 w-24 flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 text-gray-500 transition-colors"
           >
             <span className="text-2xl">+</span>
             <span className="text-xs">添加照片</span>

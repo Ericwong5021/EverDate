@@ -9,10 +9,7 @@ export async function GET() {
     });
     return NextResponse.json(commemoratives);
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to fetch commemoratives" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to fetch commemoratives" }, { status: 500 });
   }
 }
 
@@ -33,10 +30,7 @@ export async function POST(request: NextRequest) {
     } = body;
 
     if (!title || !recipientEmail || !month || !day || !subject || !emailBody) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
     const user = await prisma.user.upsert({
@@ -64,9 +58,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(commemorative, { status: 201 });
   } catch (error) {
     console.error("Create commemorative error:", error);
-    return NextResponse.json(
-      { error: "Failed to create commemorative" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to create commemorative" }, { status: 500 });
   }
 }

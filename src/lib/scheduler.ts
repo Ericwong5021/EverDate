@@ -19,15 +19,11 @@ async function processScheduledEmails() {
 
   for (const comm of commemoratives) {
     const existingLog = comm.emailLogs.find(
-      (log) =>
-        log.status === "success" &&
-        log.scheduledFor.getFullYear() === now.getFullYear()
+      (log) => log.status === "success" && log.scheduledFor.getFullYear() === now.getFullYear(),
     );
 
     if (existingLog) {
-      console.log(
-        `[Scheduler] Already sent for ${comm.title} this year, skipping`
-      );
+      console.log(`[Scheduler] Already sent for ${comm.title} this year, skipping`);
       continue;
     }
 
@@ -46,7 +42,7 @@ async function processScheduledEmails() {
         comm.recipientEmail,
         comm.subject,
         comm.body,
-        comm.photoUrl || undefined
+        comm.photoUrl || undefined,
       );
 
       await prisma.emailLog.update({
@@ -61,17 +57,14 @@ async function processScheduledEmails() {
       if (result.success) {
         console.log(`[Scheduler] Successfully sent: ${comm.title}`);
       } else {
-        console.error(
-          `[Scheduler] Failed to send: ${comm.title} - ${result.error}`
-        );
+        console.error(`[Scheduler] Failed to send: ${comm.title} - ${result.error}`);
       }
     } catch (error) {
       await prisma.emailLog.update({
         where: { id: pendingLog.id },
         data: {
           status: "failed",
-          errorMessage:
-            error instanceof Error ? error.message : "Unknown error",
+          errorMessage: error instanceof Error ? error.message : "Unknown error",
         },
       });
       console.error(`[Scheduler] Error sending ${comm.title}:`, error);
@@ -93,7 +86,7 @@ async function retryFailedEmails() {
     if (log.retryCount >= log.maxRetries) continue;
 
     console.log(
-      `[Retry] Attempt ${log.retryCount + 1}/${log.maxRetries} for ${log.commemorative.title}`
+      `[Retry] Attempt ${log.retryCount + 1}/${log.maxRetries} for ${log.commemorative.title}`,
     );
 
     await prisma.emailLog.update({
@@ -105,7 +98,7 @@ async function retryFailedEmails() {
       log.commemorative.recipientEmail,
       log.commemorative.subject,
       log.commemorative.body,
-      log.commemorative.photoUrl || undefined
+      log.commemorative.photoUrl || undefined,
     );
 
     await prisma.emailLog.update({

@@ -40,67 +40,53 @@ export default function NewCommemorative() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">新建纪念日</h1>
+    <div className="mx-auto max-w-2xl">
+      <h1 className="mb-6 text-2xl font-bold">新建纪念日</h1>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            纪念日名称 *
-          </label>
+          <label className="mb-1 block text-sm font-medium text-gray-700">纪念日名称 *</label>
           <input
             type="text"
             required
             value={form.title}
             onChange={(e) => setForm({ ...form, title: e.target.value })}
             placeholder="例如：结婚纪念日"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-400 focus:border-transparent outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-transparent focus:ring-2 focus:ring-red-400"
           />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              收件人姓名
-            </label>
+            <label className="mb-1 block text-sm font-medium text-gray-700">收件人姓名</label>
             <input
               type="text"
               value={form.recipientName}
-              onChange={(e) =>
-                setForm({ ...form, recipientName: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, recipientName: e.target.value })}
               placeholder="对方的名字"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-400 focus:border-transparent outline-none"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-transparent focus:ring-2 focus:ring-red-400"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              收件人邮箱 *
-            </label>
+            <label className="mb-1 block text-sm font-medium text-gray-700">收件人邮箱 *</label>
             <input
               type="email"
               required
               value={form.recipientEmail}
-              onChange={(e) =>
-                setForm({ ...form, recipientEmail: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, recipientEmail: e.target.value })}
               placeholder="example@email.com"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-400 focus:border-transparent outline-none"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-transparent focus:ring-2 focus:ring-red-400"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              月份 *
-            </label>
+            <label className="mb-1 block text-sm font-medium text-gray-700">月份 *</label>
             <select
               required
               value={form.month}
-              onChange={(e) =>
-                setForm({ ...form, month: parseInt(e.target.value) })
-              }
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-400 focus:border-transparent outline-none"
+              onChange={(e) => setForm({ ...form, month: parseInt(e.target.value) })}
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-transparent focus:ring-2 focus:ring-red-400"
             >
               {Array.from({ length: 12 }, (_, i) => (
                 <option key={i + 1} value={i + 1}>
@@ -110,16 +96,12 @@ export default function NewCommemorative() {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              日期 *
-            </label>
+            <label className="mb-1 block text-sm font-medium text-gray-700">日期 *</label>
             <select
               required
               value={form.day}
-              onChange={(e) =>
-                setForm({ ...form, day: parseInt(e.target.value) })
-              }
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-400 focus:border-transparent outline-none"
+              onChange={(e) => setForm({ ...form, day: parseInt(e.target.value) })}
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-transparent focus:ring-2 focus:ring-red-400"
             >
               {Array.from({ length: 31 }, (_, i) => (
                 <option key={i + 1} value={i + 1}>
@@ -129,9 +111,7 @@ export default function NewCommemorative() {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              起始年份
-            </label>
+            <label className="mb-1 block text-sm font-medium text-gray-700">起始年份</label>
             <input
               type="number"
               value={form.year}
@@ -139,56 +119,47 @@ export default function NewCommemorative() {
               placeholder="可选"
               min="1900"
               max="2100"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-400 focus:border-transparent outline-none"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-transparent focus:ring-2 focus:ring-red-400"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            邮件主题 *
-          </label>
+          <label className="mb-1 block text-sm font-medium text-gray-700">邮件主题 *</label>
           <input
             type="text"
             required
             value={form.subject}
             onChange={(e) => setForm({ ...form, subject: e.target.value })}
             placeholder="例如：亲爱的，纪念日快乐！"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-400 focus:border-transparent outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-transparent focus:ring-2 focus:ring-red-400"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            邮件正文 *
-          </label>
+          <label className="mb-1 block text-sm font-medium text-gray-700">邮件正文 *</label>
           <textarea
             required
             rows={6}
             value={form.body}
             onChange={(e) => setForm({ ...form, body: e.target.value })}
             placeholder="写你想说的话..."
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-400 focus:border-transparent outline-none resize-none"
+            className="w-full resize-none rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-transparent focus:ring-2 focus:ring-red-400"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            照片 URL（可选）
-          </label>
+          <label className="mb-1 block text-sm font-medium text-gray-700">照片 URL（可选）</label>
           <input
             type="url"
             value={form.photoUrl}
             onChange={(e) => setForm({ ...form, photoUrl: e.target.value })}
             placeholder="https://example.com/photo.jpg"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-400 focus:border-transparent outline-none"
+            className="w-full rounded-lg border border-gray-300 px-3 py-2 outline-none focus:border-transparent focus:ring-2 focus:ring-red-400"
           />
           {form.photoUrl && (
-            <img
-              src={form.photoUrl}
-              alt="预览"
-              className="mt-2 max-h-40 rounded-lg object-cover"
-            />
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={form.photoUrl} alt="预览" className="mt-2 max-h-40 rounded-lg object-cover" />
           )}
         </div>
 
@@ -196,14 +167,14 @@ export default function NewCommemorative() {
           <button
             type="submit"
             disabled={saving}
-            className="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition-colors disabled:opacity-50"
+            className="rounded-lg bg-red-500 px-6 py-2 text-white transition-colors hover:bg-red-600 disabled:opacity-50"
           >
             {saving ? "保存中..." : "保存"}
           </button>
           <button
             type="button"
             onClick={() => router.back()}
-            className="border border-gray-300 text-gray-600 px-6 py-2 rounded-lg hover:border-gray-400 transition-colors"
+            className="rounded-lg border border-gray-300 px-6 py-2 text-gray-600 transition-colors hover:border-gray-400"
           >
             取消
           </button>

@@ -6,3 +6,5 @@ node_modules/
 *.db-journal
 out/
 dist/
+coverage/
+tsconfig.tsbuildinfo

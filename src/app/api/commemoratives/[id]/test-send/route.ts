@@ -2,20 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendEmail } from "@/lib/email";
 
-export async function POST(
-  _request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function POST(_request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const commemorative = await prisma.commemorative.findUnique({
       where: { id: params.id },
     });
 
     if (!commemorative) {
-      return NextResponse.json(
-        { error: "Commemorative not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Commemorative not found" }, { status: 404 });
     }
 
     const log = await prisma.emailLog.create({
@@ -30,7 +24,7 @@ export async function POST(
       commemorative.recipientEmail,
       commemorative.subject,
       commemorative.body,
-      commemorative.photoUrl || undefined
+      commemorative.photoUrl || undefined,
     );
 
     await prisma.emailLog.update({
@@ -49,9 +43,6 @@ export async function POST(
       logId: log.id,
     });
   } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to send test email" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to send test email" }, { status: 500 });
   }
 }

@@ -75,7 +75,7 @@ export default function EmailPreviewComponent({ preview }: EmailPreviewProps) {
 
         {preview.photos.length > 0 && (
           <div className="mb-6 grid grid-cols-2 gap-4">
-            {preview.photos.map((photo, index) => (
+            {preview.photos.map((photo: string, index: number) => (
               /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 key={index}
@@ -100,7 +100,7 @@ export default function EmailPreviewComponent({ preview }: EmailPreviewProps) {
           <button className="rounded bg-gray-200 px-3 py-1 text-sm text-gray-700 transition-colors hover:bg-gray-300">
             全屏预览
           </button>
-          <button className="rounded bg-rose-gold px-3 py-1 text-sm text-white transition-colors hover:bg-wine">
+          <button className="bg-rose-gold hover:bg-wine rounded px-3 py-1 text-sm text-white transition-colors">
             发送测试邮件
           </button>
         </div>
