@@ -10,14 +10,14 @@ export function Footer() {
             <h3 className="mb-4 text-2xl font-[var(--font-title)] font-semibold text-[var(--color-cream-50)]">
               EverDate
             </h3>
-            <p className="max-w-sm text-sm font-[var(--font-body)] leading-relaxed text-[var(--color-cream-400)]">
+            <p className="max-w-sm text-sm leading-relaxed font-[var(--font-body)] text-[var(--color-cream-400)]">
               让爱意准时抵达。一个帮你认真准备爱的仪式的服务。
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="mb-4 text-sm font-[var(--font-ui)] font-medium uppercase tracking-wider text-[var(--color-cream-100)]">
+            <h4 className="mb-4 text-sm font-[var(--font-ui)] font-medium tracking-wider text-[var(--color-cream-100)] uppercase">
               产品
             </h4>
             <ul className="space-y-2">
@@ -35,7 +35,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-[var(--font-ui)] font-medium uppercase tracking-wider text-[var(--color-cream-100)]">
+            <h4 className="mb-4 text-sm font-[var(--font-ui)] font-medium tracking-wider text-[var(--color-cream-100)] uppercase">
               支持
             </h4>
             <ul className="space-y-2">
@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         <div
-          className="section-divider mb-8 mt-12"
+          className="section-divider mt-12 mb-8"
           style={{
             background:
               "linear-gradient(90deg, transparent 0%, rgba(201,164,106,0.2) 20%, rgba(201,164,106,0.4) 50%, rgba(201,164,106,0.2) 80%, transparent 100%)",

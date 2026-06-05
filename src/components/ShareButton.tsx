@@ -48,7 +48,7 @@ export default function ShareButton({ title, date }: ShareButtonProps) {
   return (
     <button
       onClick={handleShare}
-      className="group relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-wine-red to-rose-gold px-6 py-3 font-medium tracking-wide text-white shadow-lg shadow-wine-red/20 transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-xl hover:shadow-wine-red/30 active:scale-[0.98]"
+      className="group from-wine-red to-rose-gold shadow-wine-red/20 hover:shadow-wine-red/30 relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r px-6 py-3 font-medium tracking-wide text-white shadow-lg transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-xl active:scale-[0.98]"
     >
       <svg
         className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12"

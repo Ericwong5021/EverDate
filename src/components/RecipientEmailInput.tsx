@@ -34,7 +34,7 @@ export default function RecipientEmailInput({ email, onEmailChange }: RecipientE
         value={email}
         onChange={handleChange}
         placeholder="example@email.com"
-        className={`w-full rounded-lg border px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold ${
+        className={`focus:ring-rose-gold w-full rounded-lg border px-4 py-2 focus:border-transparent focus:ring-2 ${
           error ? "border-red-500" : "border-gray-300"
         }`}
       />

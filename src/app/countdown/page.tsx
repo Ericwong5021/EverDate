@@ -42,7 +42,7 @@ export default function CountdownPage() {
     <main>
       <Navbar />
 
-      <section className="flex min-h-screen items-center pb-16 pt-24">
+      <section className="flex min-h-screen items-center pt-24 pb-16">
         <div className="container">
           <div className="mx-auto max-w-lg">
             <div className="mb-8 text-center">

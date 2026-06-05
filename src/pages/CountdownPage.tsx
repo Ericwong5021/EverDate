@@ -57,7 +57,7 @@ export default function CountdownPage() {
       {/* Back link */}
       <Link
         to="/"
-        className="absolute left-6 top-6 flex items-center gap-1 text-sm text-rose-400 transition-colors hover:text-rose-600"
+        className="absolute top-6 left-6 flex items-center gap-1 text-sm text-rose-400 transition-colors hover:text-rose-600"
         style={{ fontFamily: "var(--font-body)" }}
       >
         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
