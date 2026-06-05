@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Layout from './components/layout/Layout'
-import LandingPage from './pages/LandingPage'
-import CreateAnniversary from './pages/CreateAnniversary'
-import CountdownPage from './pages/CountdownPage'
-import EmailPreview from './pages/EmailPreview'
-import PaymentPage from './pages/PaymentPage'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import LandingPage from "./pages/LandingPage";
+import CreateAnniversary from "./pages/CreateAnniversary";
+import CountdownPage from "./pages/CountdownPage";
+import EmailPreview from "./pages/EmailPreview";
+import PaymentPage from "./pages/PaymentPage";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         </Routes>
       </Layout>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

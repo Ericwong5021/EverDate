@@ -17,38 +17,72 @@ export function Card({ children, className = "", variant = "default" }: CardProp
   };
 
   return (
-    <div
-      className={`rounded-[var(--radius-xl)] p-6 ${variants[variant]} ${className}`}
-    >
+    <div className={`rounded-[var(--radius-xl)] p-6 ${variants[variant]} ${className}`}>
       {children}
     </div>
   );
 }
 
-export function CardHeader({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function CardHeader({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return <div className={`mb-4 ${className}`}>{children}</div>;
 }
 
-export function CardTitle({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function CardTitle({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <h3 className={`font-[var(--font-title)] text-xl font-medium text-[var(--color-primary)] ${className}`}>
+    <h3
+      className={`text-xl font-[var(--font-title)] font-medium text-[var(--color-primary)] ${className}`}
+    >
       {children}
     </h3>
   );
 }
 
-export function CardDescription({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function CardDescription({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <p className={`text-sm text-[var(--color-muted-foreground)] mt-1 font-[var(--font-body)] ${className}`}>
+    <p
+      className={`mt-1 text-sm font-[var(--font-body)] text-[var(--color-muted-foreground)] ${className}`}
+    >
       {children}
     </p>
   );
 }
 
-export function CardContent({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function CardContent({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return <div className={`${className}`}>{children}</div>;
 }
 
-export function CardFooter({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`mt-4 pt-4 border-t border-[var(--color-border)] ${className}`}>{children}</div>;
+export function CardFooter({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`mt-4 border-t border-[var(--color-border)] pt-4 ${className}`}>{children}</div>
+  );
 }

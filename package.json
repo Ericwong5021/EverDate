@@ -1,5 +1,5 @@
 {
-  "name": "everdate",
+  "name": "everdate-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,9 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "format:check": "echo 'format check passed'",
-    "test": "echo 'no tests yet'",
-    "test:coverage": "echo 'no tests yet'"
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "next": "^15.1.0",
@@ -26,6 +26,14 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^4.0.0",
     "@tailwindcss/postcss": "^4.0.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.8",
+    "@vitest/coverage-v8": "^4.1.8",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.7.0",
+    "@vitejs/plugin-react": "^5.0.0"
   }
 }

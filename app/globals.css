@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-wine-50: #fdf2f4;
+  --color-wine-100: #fce7eb;
+  --color-wine-200: #f9d0da;
+  --color-wine-300: #f4a9bc;
+  --color-wine-400: #ec7a97;
+  --color-wine-500: #e04d75;
+  --color-wine-600: #cc2d5a;
+  --color-wine-700: #ab1e48;
+  --color-wine-800: #8b1e3e;
+  --color-wine-900: #6b1c35;
+
+  --color-rosegold-50: #fdf7f5;
+  --color-rosegold-100: #f9ede8;
+  --color-rosegold-200: #f2d6cc;
+  --color-rosegold-300: #e8b8a8;
+  --color-rosegold-400: #d9957e;
+  --color-rosegold-500: #c97a62;
+  --color-rosegold-600: #b76e59;
+  --color-rosegold-700: #985749;
+  --color-rosegold-800: #7d483e;
+  --color-rosegold-900: #683d36;
+
+  --color-cream-50: #fffdfb;
+  --color-cream-100: #fff8f0;
+  --color-cream-200: #fef0e0;
+  --color-cream-300: #fde5c8;
+  --color-cream-400: #fad3a3;
+  --color-cream-500: #f5be7e;
+
+  --font-serif-cn: "Noto Serif SC", "Source Han Serif CN", "SimSun", serif;
+  --font-serif-en: "Playfair Display", "Georgia", serif;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background: var(--color-cream-50);
+  color: #2d1a1a;
+  font-family: var(--font-serif-cn);
+}
+
+::selection {
+  background: var(--color-wine-200);
+  color: var(--color-wine-900);
+}
+
+html {
+  scroll-behavior: smooth;
+}

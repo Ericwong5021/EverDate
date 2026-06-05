@@ -15,10 +15,10 @@ import Link from "next/link";
 // ── Hero ──────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
       {/* Background gradient */}
       <div
-        className="absolute inset-0 noise-overlay"
+        className="noise-overlay absolute inset-0"
         style={{
           background:
             "radial-gradient(circle at 30% 20%, rgba(232,199,200,0.45), transparent 50%), radial-gradient(circle at 70% 80%, rgba(201,164,106,0.15), transparent 50%), linear-gradient(135deg, #FFF8F1 0%, #F4E8DA 100%)",
@@ -26,32 +26,32 @@ function Hero() {
       />
 
       {/* Decorative floating elements */}
-      <div className="absolute top-20 right-[15%] w-3 h-3 rounded-full bg-[var(--color-gold-300)] opacity-40 animate-float" />
+      <div className="animate-float absolute top-20 right-[15%] h-3 w-3 rounded-full bg-[var(--color-gold-300)] opacity-40" />
       <div
-        className="absolute bottom-32 left-[10%] w-2 h-2 rounded-full bg-[var(--color-wine-300)] opacity-30 animate-float"
+        className="animate-float absolute bottom-32 left-[10%] h-2 w-2 rounded-full bg-[var(--color-wine-300)] opacity-30"
         style={{ animationDelay: "2s" }}
       />
       <div
-        className="absolute top-40 left-[20%] w-1.5 h-1.5 rounded-full bg-[var(--color-gold-200)] opacity-50 animate-float"
+        className="animate-float absolute top-40 left-[20%] h-1.5 w-1.5 rounded-full bg-[var(--color-gold-200)] opacity-50"
         style={{ animationDelay: "4s" }}
       />
 
-      <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 container">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: Copy */}
           <div className="stagger">
             <Badge variant="gold" className="mb-6">
               ✦ 浪漫纪念日惊喜服务
             </Badge>
 
-            <h1 className="font-[var(--font-title)] text-4xl sm:text-5xl lg:text-6xl font-semibold text-[var(--color-primary)] leading-tight mb-6">
+            <h1 className="mb-6 text-4xl leading-tight font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-5xl lg:text-6xl">
               让重要的日子，
               <br />
               准时开出一场
               <span className="text-[var(--color-secondary)]"> 惊喜</span>。
             </h1>
 
-            <p className="text-lg text-[var(--color-cream-700)] font-[var(--font-body)] leading-relaxed mb-8 max-w-lg">
+            <p className="mb-8 max-w-lg text-lg leading-relaxed font-[var(--font-body)] text-[var(--color-cream-700)]">
               设置纪念日倒计时、提前准备提醒、专属待办清单，并在当天为对方送达一封带着照片与祝福的惊喜邮件。
             </p>
 
@@ -66,23 +66,28 @@ function Hero() {
           </div>
 
           {/* Right: Countdown card preview */}
-          <div className="flex justify-center lg:justify-end animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <div
+            className="animate-fade-in-up flex justify-center lg:justify-end"
+            style={{ animationDelay: "0.3s" }}
+          >
             <div className="relative">
               {/* Gold border glow */}
               <div className="absolute -inset-1 rounded-[28px] bg-gradient-to-br from-[var(--color-gold-200)] to-[var(--color-gold-100)] opacity-50 blur-sm" />
 
-              <div className="relative bg-[var(--color-cream-50)]/90 backdrop-blur-md rounded-[24px] p-8 border border-[var(--color-border-hover)] shadow-[var(--shadow-elevated)] w-[320px]">
-                <p className="text-sm text-[var(--color-muted-foreground)] font-[var(--font-ui)] text-center mb-2">
+              <div className="relative w-[320px] rounded-[24px] border border-[var(--color-border-hover)] bg-[var(--color-cream-50)]/90 p-8 shadow-[var(--shadow-elevated)] backdrop-blur-md">
+                <p className="mb-2 text-center text-sm font-[var(--font-ui)] text-[var(--color-muted-foreground)]">
                   距离结婚纪念日还有
                 </p>
-                <div className="text-center mb-4">
-                  <span className="font-[var(--font-title)] text-7xl font-light text-[var(--color-primary)] leading-none">
+                <div className="mb-4 text-center">
+                  <span className="text-7xl leading-none font-[var(--font-title)] font-light text-[var(--color-primary)]">
                     27
                   </span>
-                  <p className="text-sm text-[var(--color-muted-foreground)] font-[var(--font-ui)] mt-1">天</p>
+                  <p className="mt-1 text-sm font-[var(--font-ui)] text-[var(--color-muted-foreground)]">
+                    天
+                  </p>
                 </div>
                 <div className="section-divider" style={{ margin: "16px 0" }} />
-                <div className="flex justify-between items-center text-sm font-[var(--font-ui)]">
+                <div className="flex items-center justify-between text-sm font-[var(--font-ui)]">
                   <span className="text-[var(--color-cream-600)]">日期：2026.10.21</span>
                   <span className="text-[var(--color-secondary)]">To My Love ♡</span>
                 </div>
@@ -131,26 +136,32 @@ function Features() {
   ];
 
   return (
-    <section className="py-24 bg-[var(--color-cream-50)]">
+    <section className="bg-[var(--color-cream-50)] py-24">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-4">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
             把纪念日变成值得期待的一天
           </h2>
           <div className="gold-line mx-auto mb-4" />
-          <p className="text-[var(--color-cream-600)] font-[var(--font-body)] max-w-md mx-auto">
+          <p className="mx-auto max-w-md font-[var(--font-body)] text-[var(--color-cream-600)]">
             从倒计时到惊喜送达，我们帮你完成每一个浪漫细节
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger">
+        <div className="stagger grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
-            <Card key={f.title} variant="glass" className="text-center hover:shadow-[var(--shadow-elevated)] transition-all duration-300 hover:-translate-y-1">
-              <div className="text-3xl mb-4 text-[var(--color-secondary)]">{f.icon}</div>
-              <h3 className="font-[var(--font-title)] text-lg font-medium text-[var(--color-primary)] mb-2">
+            <Card
+              key={f.title}
+              variant="glass"
+              className="text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elevated)]"
+            >
+              <div className="mb-4 text-3xl text-[var(--color-secondary)]">{f.icon}</div>
+              <h3 className="mb-2 text-lg font-[var(--font-title)] font-medium text-[var(--color-primary)]">
                 {f.title}
               </h3>
-              <p className="text-sm text-[var(--color-cream-600)] font-[var(--font-body)]">{f.desc}</p>
+              <p className="text-sm font-[var(--font-body)] text-[var(--color-cream-600)]">
+                {f.desc}
+              </p>
             </Card>
           ))}
         </div>
@@ -164,19 +175,24 @@ function CountdownModule() {
   return (
     <section className="py-24">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <Badge variant="wine" className="mb-4">倒计时</Badge>
-            <h2 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-4">
+            <Badge variant="wine" className="mb-4">
+              倒计时
+            </Badge>
+            <h2 className="mb-4 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
               每一天，都离惊喜更近一步
             </h2>
-            <p className="text-[var(--color-cream-600)] font-[var(--font-body)] mb-6 leading-relaxed">
+            <p className="mb-6 leading-relaxed font-[var(--font-body)] text-[var(--color-cream-600)]">
               像一封高级邀请函般的倒计时卡片，让等待也变得浪漫。数字在静静跳动，提醒你：重要的日子，正在靠近。
             </p>
             <ul className="space-y-3">
               {["实时倒计时，精确到秒", "优雅的邀请函风格卡片", "支持分享给对方"].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm font-[var(--font-ui)] text-[var(--color-cream-700)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)]" />
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-sm font-[var(--font-ui)] text-[var(--color-cream-700)]"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-secondary)]" />
                   {item}
                 </li>
               ))}
@@ -184,11 +200,11 @@ function CountdownModule() {
           </div>
 
           <div className="flex justify-center">
-            <Card variant="elevated" className="w-full max-w-sm text-center p-8">
-              <p className="text-sm text-[var(--color-muted-foreground)] font-[var(--font-ui)] mb-3">
+            <Card variant="elevated" className="w-full max-w-sm p-8 text-center">
+              <p className="mb-3 text-sm font-[var(--font-ui)] text-[var(--color-muted-foreground)]">
                 距离结婚纪念日还有
               </p>
-              <div className="flex justify-center gap-4 mb-4">
+              <div className="mb-4 flex justify-center gap-4">
                 {[
                   { num: "127", label: "天" },
                   { num: "08", label: "时" },
@@ -196,15 +212,17 @@ function CountdownModule() {
                   { num: "15", label: "秒" },
                 ].map((item) => (
                   <div key={item.label} className="text-center">
-                    <span className="font-[var(--font-title)] text-3xl font-light text-[var(--color-primary)] block">
+                    <span className="block text-3xl font-[var(--font-title)] font-light text-[var(--color-primary)]">
                       {item.num}
                     </span>
-                    <span className="text-xs text-[var(--color-cream-500)] font-[var(--font-ui)]">{item.label}</span>
+                    <span className="text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
+                      {item.label}
+                    </span>
                   </div>
                 ))}
               </div>
               <div className="section-divider" style={{ margin: "16px 0" }} />
-              <p className="text-sm text-[var(--color-cream-600)] font-[var(--font-ui)]">
+              <p className="text-sm font-[var(--font-ui)] text-[var(--color-cream-600)]">
                 2026.10.21 · To My Love
               </p>
             </Card>
@@ -226,24 +244,24 @@ function TodoModule() {
   ];
 
   return (
-    <section className="py-24 bg-[var(--color-muted)]">
+    <section className="bg-[var(--color-muted)] py-24">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 flex justify-center">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+          <div className="order-2 flex justify-center lg:order-1">
             <Card variant="default" className="w-full max-w-sm p-6">
-              <h3 className="font-[var(--font-title)] text-lg font-medium text-[var(--color-primary)] mb-4">
+              <h3 className="mb-4 text-lg font-[var(--font-title)] font-medium text-[var(--color-primary)]">
                 纪念日准备清单
               </h3>
               <div className="space-y-3">
                 {todos.map((todo) => (
                   <div
                     key={todo.text}
-                    className="flex items-center gap-3 py-2 border-b border-[var(--color-border)] last:border-0"
+                    className="flex items-center gap-3 border-b border-[var(--color-border)] py-2 last:border-0"
                   >
                     <span
-                      className={`w-5 h-5 rounded-full border flex items-center justify-center text-xs ${
+                      className={`flex h-5 w-5 items-center justify-center rounded-full border text-xs ${
                         todo.done
-                          ? "bg-[var(--color-secondary)] border-[var(--color-secondary)] text-white"
+                          ? "border-[var(--color-secondary)] bg-[var(--color-secondary)] text-white"
                           : "border-[var(--color-border-hover)]"
                       }`}
                     >
@@ -251,7 +269,9 @@ function TodoModule() {
                     </span>
                     <span
                       className={`text-sm font-[var(--font-body)] ${
-                        todo.done ? "text-[var(--color-cream-500)] line-through" : "text-[var(--color-foreground)]"
+                        todo.done
+                          ? "text-[var(--color-cream-500)] line-through"
+                          : "text-[var(--color-foreground)]"
                       }`}
                     >
                       {todo.text}
@@ -263,12 +283,15 @@ function TodoModule() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <Badge variant="gold" className="mb-4">待办清单</Badge>
-            <h2 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-4">
+            <Badge variant="gold" className="mb-4">
+              待办清单
+            </Badge>
+            <h2 className="mb-4 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
               像一张优雅的准备清单
             </h2>
-            <p className="text-[var(--color-cream-600)] font-[var(--font-body)] mb-6 leading-relaxed">
-              不是普通的 To-do App，而是一份精致的仪式准备指南。每一项完成，都让你离完美惊喜更近一步。
+            <p className="mb-6 leading-relaxed font-[var(--font-body)] text-[var(--color-cream-600)]">
+              不是普通的 To-do
+              App，而是一份精致的仪式准备指南。每一项完成，都让你离完美惊喜更近一步。
             </p>
           </div>
         </div>
@@ -282,21 +305,23 @@ function EmailPreview() {
   return (
     <section className="py-24">
       <div className="container">
-        <div className="text-center mb-16">
-          <Badge variant="wine" className="mb-4">惊喜邮件</Badge>
-          <h2 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-4">
+        <div className="mb-16 text-center">
+          <Badge variant="wine" className="mb-4">
+            惊喜邮件
+          </Badge>
+          <h2 className="mb-4 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
             一封打开的信
           </h2>
-          <p className="text-[var(--color-cream-600)] font-[var(--font-body)] max-w-md mx-auto">
+          <p className="mx-auto max-w-md font-[var(--font-body)] text-[var(--color-cream-600)]">
             精心设计的邮件模板，像一封带着温度的手写信
           </p>
         </div>
 
         <div className="flex justify-center">
-          <Card variant="elevated" className="w-full max-w-lg p-0 overflow-hidden">
+          <Card variant="elevated" className="w-full max-w-lg overflow-hidden p-0">
             {/* Letter header */}
             <div
-              className="h-40 relative"
+              className="relative h-40"
               style={{
                 background: "linear-gradient(135deg, var(--color-wine-100), var(--color-gold-100))",
               }}
@@ -308,11 +333,11 @@ function EmailPreview() {
 
             <div className="p-8">
               {/* Gold border accent */}
-              <div className="border border-[var(--color-gold-200)] rounded-[16px] p-6 mb-6">
-                <h3 className="font-[var(--font-title)] text-xl text-[var(--color-primary)] text-center mb-3">
+              <div className="mb-6 rounded-[16px] border border-[var(--color-gold-200)] p-6">
+                <h3 className="mb-3 text-center text-xl font-[var(--font-title)] text-[var(--color-primary)]">
                   写给最重要的人
                 </h3>
-                <p className="text-sm text-[var(--color-cream-600)] font-[var(--font-body)] text-center leading-relaxed">
+                <p className="text-center text-sm leading-relaxed font-[var(--font-body)] text-[var(--color-cream-600)]">
                   亲爱的，今天是我们在一起的第 1278 天。
                   <br />
                   每一天都因为有你而变得不同。
@@ -321,7 +346,7 @@ function EmailPreview() {
                 </p>
               </div>
 
-              <div className="flex justify-between items-center text-xs text-[var(--color-cream-500)] font-[var(--font-ui)]">
+              <div className="flex items-center justify-between text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
                 <span>From: 你的爱人</span>
                 <span>发送时间: 2026.10.21 09:00</span>
               </div>
@@ -338,21 +363,23 @@ function AIBlessing() {
   const styles = ["温柔浪漫", "认真深情", "轻松幽默", "文艺诗意", "简洁真诚"];
 
   return (
-    <section className="py-24 bg-[var(--color-muted)]">
+    <section className="bg-[var(--color-muted)] py-24">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
-            <Badge variant="gold" className="mb-4">AI 祝福语</Badge>
-            <h2 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-4">
+            <Badge variant="gold" className="mb-4">
+              AI 祝福语
+            </Badge>
+            <h2 className="mb-4 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
               为你们的故事，写一封
               <br />
               只属于彼此的信。
             </h2>
-            <p className="text-[var(--color-cream-600)] font-[var(--font-body)] mb-6 leading-relaxed">
+            <p className="mb-6 leading-relaxed font-[var(--font-body)] text-[var(--color-cream-600)]">
               告诉我们你们的故事，AI 会为你生成一封专属祝福信。不是冰冷的模板，而是带着温度的文字。
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="mb-6 flex flex-wrap gap-2">
               {styles.map((s) => (
                 <Badge key={s} variant="default">
                   {s}
@@ -363,14 +390,14 @@ function AIBlessing() {
 
           <div className="flex justify-center">
             <Card variant="glass" className="w-full max-w-sm">
-              <div className="text-center mb-4">
+              <div className="mb-4 text-center">
                 <span className="text-2xl text-[var(--color-secondary)]">❋</span>
               </div>
-              <p className="text-sm text-[var(--color-cream-700)] font-[var(--font-body)] text-center leading-relaxed italic">
+              <p className="text-center text-sm leading-relaxed font-[var(--font-body)] text-[var(--color-cream-700)] italic">
                 &ldquo;时光匆匆，但与你在一起的每一刻，都值得被永远铭记。你是我生命中最温柔的意外，也是我最坚定的选择。&rdquo;
               </p>
               <div className="mt-4 text-center">
-                <span className="text-xs text-[var(--color-cream-500)] font-[var(--font-ui)]">
+                <span className="text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
                   — 风格：温柔浪漫
                 </span>
               </div>
@@ -396,8 +423,8 @@ function Pricing() {
   return (
     <section className="py-24">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-4">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
             一次完整的纪念日惊喜服务
           </h2>
           <div className="gold-line mx-auto" />
@@ -408,26 +435,30 @@ function Pricing() {
             {/* Gold border glow */}
             <div className="absolute -inset-1 rounded-[28px] bg-gradient-to-br from-[var(--color-gold-200)] to-[var(--color-gold-100)] opacity-40 blur-sm" />
 
-            <Card variant="elevated" className="relative w-full max-w-md text-center p-8">
-              <p className="text-sm text-[var(--color-muted-foreground)] font-[var(--font-ui)] mb-2">
+            <Card variant="elevated" className="relative w-full max-w-md p-8 text-center">
+              <p className="mb-2 text-sm font-[var(--font-ui)] text-[var(--color-muted-foreground)]">
                 EverDate 纪念日惊喜
               </p>
               <div className="mb-6">
-                <span className="font-[var(--font-title)] text-5xl font-semibold text-[var(--color-primary)]">
+                <span className="text-5xl font-[var(--font-title)] font-semibold text-[var(--color-primary)]">
                   ¥9.9
                 </span>
-                <span className="text-[var(--color-cream-600)] font-[var(--font-body)] ml-1">/ 次</span>
+                <span className="ml-1 font-[var(--font-body)] text-[var(--color-cream-600)]">
+                  / 次
+                </span>
               </div>
 
               <div className="section-divider" style={{ margin: "24px 0" }} />
 
-              <ul className="space-y-3 mb-8 text-left">
+              <ul className="mb-8 space-y-3 text-left">
                 {items.map((item) => (
                   <li key={item} className="flex items-center gap-3">
-                    <span className="w-5 h-5 rounded-full bg-[var(--color-gold-100)] flex items-center justify-center text-[var(--color-secondary)] text-xs flex-shrink-0">
+                    <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[var(--color-gold-100)] text-xs text-[var(--color-secondary)]">
                       ✓
                     </span>
-                    <span className="text-sm font-[var(--font-body)] text-[var(--color-cream-700)]">{item}</span>
+                    <span className="text-sm font-[var(--font-body)] text-[var(--color-cream-700)]">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -465,22 +496,22 @@ function FAQ() {
   ];
 
   return (
-    <section className="py-24 bg-[var(--color-muted)]">
+    <section className="bg-[var(--color-muted)] py-24">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-4">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
             常见问题
           </h2>
           <div className="gold-line mx-auto" />
         </div>
 
-        <div className="max-w-2xl mx-auto space-y-4 stagger">
+        <div className="stagger mx-auto max-w-2xl space-y-4">
           {faqs.map((faq) => (
             <Card key={faq.q} variant="glass" className="p-6">
-              <h3 className="font-[var(--font-title)] text-lg font-medium text-[var(--color-primary)] mb-2">
+              <h3 className="mb-2 text-lg font-[var(--font-title)] font-medium text-[var(--color-primary)]">
                 {faq.q}
               </h3>
-              <p className="text-sm text-[var(--color-cream-600)] font-[var(--font-body)] leading-relaxed">
+              <p className="text-sm leading-relaxed font-[var(--font-body)] text-[var(--color-cream-600)]">
                 {faq.a}
               </p>
             </Card>
@@ -494,7 +525,7 @@ function FAQ() {
 // ── CTA ───────────────────────────────────────────────────────
 function CTA() {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="relative overflow-hidden py-24">
       <div
         className="absolute inset-0"
         style={{
@@ -502,13 +533,13 @@ function CTA() {
             "radial-gradient(circle at 50% 50%, rgba(232,199,200,0.3), transparent 60%), linear-gradient(135deg, #FFF8F1, #F4E8DA)",
         }}
       />
-      <div className="container relative z-10 text-center">
-        <h2 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-4">
+      <div className="relative z-10 container text-center">
+        <h2 className="mb-4 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
           你只需要设置一次
           <br />
           剩下的交给我们
         </h2>
-        <p className="text-[var(--color-cream-600)] font-[var(--font-body)] mb-8 max-w-md mx-auto">
+        <p className="mx-auto mb-8 max-w-md font-[var(--font-body)] text-[var(--color-cream-600)]">
           把纪念日变成值得期待的一天。让爱意准时抵达。
         </p>
         <Link href="/create">

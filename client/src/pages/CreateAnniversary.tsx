@@ -1,101 +1,99 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Calendar, Heart, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
-import { Input } from '@/components/ui/Input'
-import { Select } from '@/components/ui/Select'
-import { Card } from '@/components/ui/Card'
-import { getAnniversaryTypeLabel } from '@/utils'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Calendar, Heart, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
+import { Card } from "@/components/ui/Card";
+import { getAnniversaryTypeLabel } from "@/utils";
 
 const anniversaryTypes = [
-  { value: 'wedding', label: '结婚纪念日' },
-  { value: 'dating', label: '恋爱纪念日' },
-  { value: 'birthday', label: '生日' },
-  { value: 'engagement', label: '订婚纪念日' },
-  { value: 'first-meet', label: '初次见面纪念日' },
-  { value: 'other', label: '其他纪念日' },
-]
+  { value: "wedding", label: "结婚纪念日" },
+  { value: "dating", label: "恋爱纪念日" },
+  { value: "birthday", label: "生日" },
+  { value: "engagement", label: "订婚纪念日" },
+  { value: "first-meet", label: "初次见面纪念日" },
+  { value: "other", label: "其他纪念日" },
+];
 
 export default function CreateAnniversary() {
-  const navigate = useNavigate()
-  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
-    title: '',
-    date: '',
-    type: 'dating',
-    partnerName: '',
-    description: '',
-  })
-  const [errors, setErrors] = useState<Record<string, string>>({})
+    title: "",
+    date: "",
+    type: "dating",
+    partnerName: "",
+    description: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validate = () => {
-    const newErrors: Record<string, string> = {}
+    const newErrors: Record<string, string> = {};
 
     if (!form.title.trim()) {
-      newErrors.title = '请输入纪念日名称'
+      newErrors.title = "请输入纪念日名称";
     }
     if (!form.date) {
-      newErrors.date = '请选择纪念日期'
+      newErrors.date = "请选择纪念日期";
     }
     if (!form.partnerName.trim()) {
-      newErrors.partnerName = '请输入伴侣姓名'
+      newErrors.partnerName = "请输入伴侣姓名";
     }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!validate()) return
+    if (!validate()) return;
 
-    setLoading(true)
+    setLoading(true);
 
     try {
       // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // For demo, generate a random ID
-      const mockId = Math.random().toString(36).substring(2, 15)
+      const mockId = Math.random().toString(36).substring(2, 15);
 
       // Navigate to countdown page
-      navigate(`/countdown/${mockId}`)
+      navigate(`/countdown/${mockId}`);
     } catch (error) {
-      console.error('Failed to create anniversary:', error)
+      console.error("Failed to create anniversary:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setForm((prev) => ({ ...prev, [name]: value }))
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }))
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
-  }
+  };
 
   return (
     <div className="min-h-screen py-12 sm:py-20">
       <div className="container-wide mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
+        <div className="mx-auto max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="text-center mb-10">
-              <div className="w-16 h-16 rounded-full gradient-wine text-white flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8" />
+            <div className="mb-10 text-center">
+              <div className="gradient-wine mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full text-white">
+                <Heart className="h-8 w-8" />
               </div>
-              <h1 className="text-3xl sm:text-4xl font-serif font-bold text-wine-800 mb-3">
+              <h1 className="text-wine-800 mb-3 font-serif text-3xl font-bold sm:text-4xl">
                 创建纪念日
               </h1>
-              <p className="text-warm-600">
-                填写纪念日信息，开启惊喜之旅
-              </p>
+              <p className="text-warm-600">填写纪念日信息，开启惊喜之旅</p>
             </div>
 
             <Card variant="elevated">
@@ -145,20 +143,20 @@ export default function CreateAnniversary() {
 
                 <div className="pt-4">
                   <Button type="submit" size="lg" className="w-full" loading={loading}>
-                    <Calendar className="w-5 h-5 mr-2" />
+                    <Calendar className="mr-2 h-5 w-5" />
                     创建纪念日
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </div>
               </form>
             </Card>
 
-            <p className="text-center text-sm text-warm-500 mt-6">
+            <p className="text-warm-500 mt-6 text-center text-sm">
               创建后你可以自定义倒计时页面、生成AI祝福语、预览并发送惊喜邮件
             </p>
           </motion.div>
         </div>
       </div>
     </div>
-  )
+  );
 }

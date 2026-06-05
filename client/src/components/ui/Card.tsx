@@ -1,22 +1,22 @@
-import { cn } from '@/utils'
+import { cn } from "@/utils";
 
 interface CardProps {
-  children: React.ReactNode
-  className?: string
-  variant?: 'default' | 'elevated'
+  children: React.ReactNode;
+  className?: string;
+  variant?: "default" | "elevated";
 }
 
-export function Card({ children, className, variant = 'default' }: CardProps) {
+export function Card({ children, className, variant = "default" }: CardProps) {
   return (
     <div
       className={cn(
-        'bg-white rounded-2xl border border-warm-100',
-        variant === 'default' && 'shadow-sm p-6',
-        variant === 'elevated' && 'shadow-lg p-8',
-        className
+        "border-warm-100 rounded-2xl border bg-white",
+        variant === "default" && "p-6 shadow-sm",
+        variant === "elevated" && "p-8 shadow-lg",
+        className,
       )}
     >
       {children}
     </div>
-  )
+  );
 }

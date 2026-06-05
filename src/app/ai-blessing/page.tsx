@@ -19,14 +19,12 @@ const styles = [
 const sampleBlessings: Record<string, string> = {
   romantic:
     "时光匆匆，但与你在一起的每一刻，都值得被永远铭记。你是我生命中最温柔的意外，也是我最坚定的选择。愿我们的爱情，如这封信一样，温暖而长久。",
-  deep:
-    "我知道说「我爱你」很容易，但我想用余生来证明这三个字的分量。谢谢你选择了我，让我成为世界上最幸运的人。今后的每一天，我都会更加珍惜你。",
+  deep: "我知道说「我爱你」很容易，但我想用余生来证明这三个字的分量。谢谢你选择了我，让我成为世界上最幸运的人。今后的每一天，我都会更加珍惜你。",
   humorous:
     "据说在一起久了会变成亲人，但我们不一样——我们是一对依然会为对方心动的「老」情侣。谢谢你忍受我的小脾气，也谢谢你总是记得我爱吃什么。",
   literary:
     "你是我写过最美的诗，是我谱过最动人的曲。在所有星辰大海里，我只想停泊在你的港湾。今夜月色真美，而你更美。",
-  simple:
-    "没有什么华丽的话想对你说。只想告诉你：有你在身边，每一天都是好日子。谢谢你，我爱你。",
+  simple: "没有什么华丽的话想对你说。只想告诉你：有你在身边，每一天都是好日子。谢谢你，我爱你。",
 };
 
 export default function AIBlessingPage() {
@@ -38,25 +36,27 @@ export default function AIBlessingPage() {
     <main>
       <Navbar />
 
-      <section className="pt-24 pb-16 min-h-screen">
+      <section className="min-h-screen pt-24 pb-16">
         <div className="container max-w-3xl">
-          <div className="text-center mb-12">
-            <Badge variant="gold" className="mb-4">AI 祝福语</Badge>
-            <h1 className="font-[var(--font-title)] text-3xl sm:text-4xl font-semibold text-[var(--color-primary)] mb-3">
+          <div className="mb-12 text-center">
+            <Badge variant="gold" className="mb-4">
+              AI 祝福语
+            </Badge>
+            <h1 className="mb-3 text-3xl font-[var(--font-title)] font-semibold text-[var(--color-primary)] sm:text-4xl">
               为你们的故事，写一封
               <br />
               只属于彼此的信。
             </h1>
-            <p className="text-[var(--color-cream-600)] font-[var(--font-body)]">
+            <p className="font-[var(--font-body)] text-[var(--color-cream-600)]">
               告诉我们你们的故事，AI 会为你生成一封专属祝福信
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Left: Input */}
             <div className="space-y-6">
               <Card variant="default" className="p-6">
-                <h3 className="font-[var(--font-title)] text-lg font-medium text-[var(--color-primary)] mb-4">
+                <h3 className="mb-4 text-lg font-[var(--font-title)] font-medium text-[var(--color-primary)]">
                   选择风格
                 </h3>
                 <div className="space-y-2">
@@ -64,16 +64,16 @@ export default function AIBlessingPage() {
                     <button
                       key={s.id}
                       onClick={() => setSelectedStyle(s.id)}
-                      className={`w-full text-left px-4 py-3 rounded-[var(--radius-lg)] border transition-all duration-300 ${
+                      className={`w-full rounded-[var(--radius-lg)] border px-4 py-3 text-left transition-all duration-300 ${
                         selectedStyle === s.id
                           ? "border-[var(--color-secondary)] bg-[var(--color-gold-50)] shadow-[var(--shadow-gold)]"
                           : "border-[var(--color-border)] hover:border-[var(--color-border-hover)]"
                       }`}
                     >
-                      <span className="text-sm font-medium text-[var(--color-primary)] font-[var(--font-ui)]">
+                      <span className="text-sm font-[var(--font-ui)] font-medium text-[var(--color-primary)]">
                         {s.label}
                       </span>
-                      <span className="block text-xs text-[var(--color-cream-500)] font-[var(--font-ui)] mt-0.5">
+                      <span className="mt-0.5 block text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
                         {s.desc}
                       </span>
                     </button>
@@ -89,29 +89,25 @@ export default function AIBlessingPage() {
                 onChange={(e) => setStory(e.target.value)}
               />
 
-              <Button
-                size="lg"
-                className="w-full"
-                onClick={() => setGenerated(true)}
-              >
+              <Button size="lg" className="w-full" onClick={() => setGenerated(true)}>
                 生成祝福语
               </Button>
             </div>
 
             {/* Right: Preview */}
             <div>
-              <Card variant="elevated" className="p-6 sticky top-24">
-                <div className="text-center mb-4">
+              <Card variant="elevated" className="sticky top-24 p-6">
+                <div className="mb-4 text-center">
                   <span className="text-2xl text-[var(--color-secondary)]">❋</span>
                 </div>
 
                 {generated ? (
-                  <div className="space-y-4 animate-fade-in">
-                    <p className="text-[var(--color-cream-700)] font-[var(--font-body)] leading-relaxed text-sm sm:text-base italic">
+                  <div className="animate-fade-in space-y-4">
+                    <p className="text-sm leading-relaxed font-[var(--font-body)] text-[var(--color-cream-700)] italic sm:text-base">
                       &ldquo;{sampleBlessings[selectedStyle]}&rdquo;
                     </p>
-                    <div className="text-center pt-4 border-t border-[var(--color-border)]">
-                      <span className="text-xs text-[var(--color-cream-500)] font-[var(--font-ui)]">
+                    <div className="border-t border-[var(--color-border)] pt-4 text-center">
+                      <span className="text-xs font-[var(--font-ui)] text-[var(--color-cream-500)]">
                         风格：{styles.find((s) => s.id === selectedStyle)?.label}
                       </span>
                     </div>
@@ -125,7 +121,7 @@ export default function AIBlessingPage() {
                     </div>
                   </div>
                 ) : (
-                  <div className="text-center py-12 text-[var(--color-cream-400)]">
+                  <div className="py-12 text-center text-[var(--color-cream-400)]">
                     <p className="text-sm font-[var(--font-ui)]">
                       选择风格并点击&ldquo;生成祝福语&rdquo;
                       <br />

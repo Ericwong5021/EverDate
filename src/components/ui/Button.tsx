@@ -23,8 +23,7 @@ export function Button({
       "bg-[var(--color-primary)] text-[var(--color-cream-50)] border-none shadow-[0_12px_32px_rgba(90,31,43,0.22)] hover:bg-[var(--color-primary-hover)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(90,31,43,0.28)] active:translate-y-0",
     secondary:
       "bg-transparent text-[var(--color-primary)] border border-[var(--color-border-hover)] hover:bg-[var(--color-muted)] hover:border-[var(--color-secondary)]",
-    ghost:
-      "bg-transparent text-[var(--color-primary)] border-none hover:bg-[var(--color-muted)]",
+    ghost: "bg-transparent text-[var(--color-primary)] border-none hover:bg-[var(--color-muted)]",
   };
 
   const sizes = {
@@ -34,10 +33,7 @@ export function Button({
   };
 
   return (
-    <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      {...props}
-    >
+    <button className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`} {...props}>
       {children}
     </button>
   );
