@@ -38,7 +38,7 @@ export default function CreatePage() {
     <main>
       <Navbar />
 
-      <section className="min-h-screen pt-24 pb-16">
+      <section className="min-h-screen pb-16 pt-24">
         <div className="container max-w-2xl">
           <div className="mb-12 text-center">
             <Badge variant="gold" className="mb-4">

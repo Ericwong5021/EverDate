@@ -6,7 +6,7 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 right-0 left-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-cream-50)]/80 backdrop-blur-md">
+    <nav className="bg-[var(--color-cream-50)]/80 fixed left-0 right-0 top-0 z-50 border-b border-[var(--color-border)] backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 no-underline">

@@ -85,7 +85,7 @@ export default function EmailPage() {
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <h1 className="text-wine text-2xl font-bold">邮件预览与编辑</h1>
+          <h1 className="text-2xl font-bold text-wine">邮件预览与编辑</h1>
           <p className="mt-1 text-sm text-gray-500">自定义邮件内容，预览最终效果，设置发送时间</p>
         </div>
       </header>
@@ -151,7 +151,7 @@ export default function EmailPage() {
               </button>
               <button
                 onClick={handleSendTest}
-                className="bg-rose-gold hover:bg-wine flex-1 rounded-lg px-4 py-3 font-medium text-white transition-colors"
+                className="flex-1 rounded-lg bg-rose-gold px-4 py-3 font-medium text-white transition-colors hover:bg-wine"
               >
                 发送测试邮件
               </button>

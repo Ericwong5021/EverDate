@@ -45,7 +45,7 @@ export default function SendTimePicker({ scheduledAt, onTimeChange }: SendTimePi
           type="date"
           value={formatDate()}
           onChange={handleDateChange}
-          className="focus:ring-rose-gold w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
         />
       </div>
 
@@ -55,7 +55,7 @@ export default function SendTimePicker({ scheduledAt, onTimeChange }: SendTimePi
           type="time"
           value={formatTime()}
           onChange={handleTimeChange}
-          className="focus:ring-rose-gold w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-transparent focus:ring-2 focus:ring-rose-gold"
         />
       </div>
 

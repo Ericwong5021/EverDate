@@ -20,7 +20,7 @@ export default function PaymentPage() {
     <main>
       <Navbar />
 
-      <section className="flex min-h-screen items-center pt-24 pb-16">
+      <section className="flex min-h-screen items-center pb-16 pt-24">
         <div className="container">
           <div className="mb-12 text-center">
             <Badge variant="gold" className="mb-4">

@@ -49,7 +49,7 @@ export default function AnniversaryForm() {
           {...register("date", {
             required: "请选择纪念日日期",
           })}
-          className="w-full rounded-xl border border-rose-200 bg-white/80 px-4 py-3 text-base backdrop-blur-sm transition-all duration-300 placeholder:text-rose-300 hover:border-rose-300 focus:border-rose-400 focus:ring-2 focus:ring-rose-400/40 focus:outline-none"
+          className="w-full rounded-xl border border-rose-200 bg-white/80 px-4 py-3 text-base backdrop-blur-sm transition-all duration-300 placeholder:text-rose-300 hover:border-rose-300 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-400/40"
           style={{ fontFamily: "var(--font-body)" }}
         />
         {errors.date && <p className="mt-1 text-sm text-rose-600">{errors.date.message}</p>}
@@ -73,7 +73,7 @@ export default function AnniversaryForm() {
             minLength: { value: 1, message: "姓名不能为空" },
             maxLength: { value: 20, message: "姓名不能超过20个字符" },
           })}
-          className="w-full rounded-xl border border-rose-200 bg-white/80 px-4 py-3 text-base backdrop-blur-sm transition-all duration-300 placeholder:text-rose-300 hover:border-rose-300 focus:border-rose-400 focus:ring-2 focus:ring-rose-400/40 focus:outline-none"
+          className="w-full rounded-xl border border-rose-200 bg-white/80 px-4 py-3 text-base backdrop-blur-sm transition-all duration-300 placeholder:text-rose-300 hover:border-rose-300 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-400/40"
           style={{ fontFamily: "var(--font-body)" }}
         />
         {errors.partnerName && (
@@ -93,7 +93,7 @@ export default function AnniversaryForm() {
         <select
           id="type"
           {...register("type", { required: "请选择纪念日类型" })}
-          className="w-full cursor-pointer appearance-none rounded-xl border border-rose-200 bg-white/80 px-4 py-3 text-base backdrop-blur-sm transition-all duration-300 hover:border-rose-300 focus:border-rose-400 focus:ring-2 focus:ring-rose-400/40 focus:outline-none"
+          className="w-full cursor-pointer appearance-none rounded-xl border border-rose-200 bg-white/80 px-4 py-3 text-base backdrop-blur-sm transition-all duration-300 hover:border-rose-300 focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-400/40"
           style={{
             fontFamily: "var(--font-body)",
             backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23be123c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`,

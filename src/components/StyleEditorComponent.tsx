@@ -49,7 +49,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
               className={`rounded-md border px-3 py-1 text-sm transition-colors ${
                 style.fontFamily === font.value
                   ? "border-rose-gold bg-rose-gold text-white"
-                  : "hover:border-rose-gold border-gray-300 bg-white text-gray-700"
+                  : "border-gray-300 bg-white text-gray-700 hover:border-rose-gold"
               }`}
               style={{ fontFamily: font.value }}
             >
@@ -69,7 +69,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
           max="24"
           value={style.fontSize}
           onChange={handleFontSizeChange}
-          className="accent-rose-gold h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200"
+          className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-rose-gold"
         />
       </div>
 
@@ -150,7 +150,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
               className={`rounded-lg border p-3 text-sm transition-colors ${
                 style.layout === layout.id
                   ? "border-rose-gold bg-rose-gold text-white"
-                  : "hover:border-rose-gold border-gray-300 bg-white text-gray-700"
+                  : "border-gray-300 bg-white text-gray-700 hover:border-rose-gold"
               }`}
             >
               <div className="font-medium">{layout.name}</div>
@@ -174,7 +174,7 @@ export default function StyleEditorComponent({ style, onStyleChange }: StyleEdit
               className={`rounded-lg border p-3 text-sm transition-colors ${
                 style.headerStyle === header.id
                   ? "border-rose-gold bg-rose-gold text-white"
-                  : "hover:border-rose-gold border-gray-300 bg-white text-gray-700"
+                  : "border-gray-300 bg-white text-gray-700 hover:border-rose-gold"
               }`}
             >
               <div className="font-medium">{header.name}</div>

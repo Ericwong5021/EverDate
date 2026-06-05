@@ -15,11 +15,11 @@
 
 @layer components {
   .email-editor-input {
-    @apply focus:ring-rose-gold w-full rounded-lg border border-gray-300 px-4 py-2 transition-all focus:border-transparent focus:ring-2;
+    @apply w-full rounded-lg border border-gray-300 px-4 py-2 transition-all focus:border-transparent focus:ring-2 focus:ring-rose-gold;
   }
 
   .email-editor-textarea {
-    @apply focus:ring-rose-gold w-full resize-none rounded-lg border border-gray-300 px-4 py-2 transition-all focus:border-transparent focus:ring-2;
+    @apply w-full resize-none rounded-lg border border-gray-300 px-4 py-2 transition-all focus:border-transparent focus:ring-2 focus:ring-rose-gold;
   }
 
   .email-editor-button {
@@ -27,7 +27,7 @@
   }
 
   .email-editor-button-primary {
-    @apply bg-rose-gold hover:bg-wine text-white;
+    @apply bg-rose-gold text-white hover:bg-wine;
   }
 
   .email-editor-button-secondary {

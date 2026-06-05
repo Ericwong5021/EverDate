@@ -36,7 +36,7 @@ export default function AIBlessingPage() {
     <main>
       <Navbar />
 
-      <section className="min-h-screen pt-24 pb-16">
+      <section className="min-h-screen pb-16 pt-24">
         <div className="container max-w-3xl">
           <div className="mb-12 text-center">
             <Badge variant="gold" className="mb-4">
@@ -103,7 +103,7 @@ export default function AIBlessingPage() {
 
                 {generated ? (
                   <div className="animate-fade-in space-y-4">
-                    <p className="text-sm leading-relaxed font-[var(--font-body)] text-[var(--color-cream-700)] italic sm:text-base">
+                    <p className="text-sm font-[var(--font-body)] italic leading-relaxed text-[var(--color-cream-700)] sm:text-base">
                       &ldquo;{sampleBlessings[selectedStyle]}&rdquo;
                     </p>
                     <div className="border-t border-[var(--color-border)] pt-4 text-center">

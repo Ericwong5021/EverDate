@@ -62,7 +62,7 @@ export default function EmailPreviewComponent({ preview }: EmailPreviewProps) {
         </h1>
 
         <div
-          className="mb-6 leading-relaxed whitespace-pre-wrap"
+          className="mb-6 whitespace-pre-wrap leading-relaxed"
           style={{
             fontFamily: preview.style.fontFamily,
             fontSize: `${preview.style.fontSize}px`,
@@ -98,7 +98,7 @@ export default function EmailPreviewComponent({ preview }: EmailPreviewProps) {
           <button className="rounded bg-gray-200 px-3 py-1 text-sm text-gray-700 transition-colors hover:bg-gray-300">
             全屏预览
           </button>
-          <button className="bg-rose-gold hover:bg-wine rounded px-3 py-1 text-sm text-white transition-colors">
+          <button className="rounded bg-rose-gold px-3 py-1 text-sm text-white transition-colors hover:bg-wine">
             发送测试邮件
           </button>
         </div>
