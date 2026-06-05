@@ -5,11 +5,11 @@ import Home from "@/app/page";
 describe("Home Page", () => {
   it("renders the title", () => {
     render(<Home />);
-    expect(screen.getByText("EverDate")).toBeInTheDocument();
+    expect(screen.getByText("EverDate 设计系统")).toBeInTheDocument();
   });
 
-  it("renders the subtitle", () => {
+  it("renders the color section", () => {
     render(<Home />);
-    expect(screen.getByText("纪念日惊喜助手")).toBeInTheDocument();
+    expect(screen.getByText("色彩系统")).toBeInTheDocument();
   });
 });

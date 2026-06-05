@@ -1,4 +1,4 @@
-import { TextareaHTMLAttributes, forwardRef } from 'react';
+import { TextareaHTMLAttributes, forwardRef } from "react";
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
@@ -7,25 +7,15 @@ export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  (
-    {
-      className = '',
-      label,
-      error,
-      helperText,
-      id,
-      ...props
-    },
-    ref
-  ) => {
-    const textareaId = id || label?.toLowerCase().replace(/\s+/g, '-');
+  ({ className = "", label, error, helperText, id, ...props }, ref) => {
+    const textareaId = id || label?.toLowerCase().replace(/\s+/g, "-");
 
     return (
       <div className="w-full">
         {label && (
           <label
             htmlFor={textareaId}
-            className="block text-sm font-medium text-[var(--color-foreground)] mb-1.5"
+            className="mb-1.5 block text-sm font-medium text-[var(--color-foreground)]"
           >
             {label}
           </label>
@@ -33,23 +23,15 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         <textarea
           ref={ref}
           id={textareaId}
-          className={`
-            w-full px-4 py-2.5
-            bg-white border rounded-lg
-            text-[var(--color-foreground)] placeholder-[var(--color-cream-400)]
-            transition-all duration-200
-            focus:outline-none focus:ring-2 focus:ring-offset-0
-            min-h-[120px] resize-y
-            ${
-              error
-                ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
-                : 'border-[var(--color-cream-300)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]'
-            }
-            disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-[var(--color-muted)]
-            ${className}
-          `}
-          aria-invalid={error ? 'true' : 'false'}
-          aria-describedby={error ? `${textareaId}-error` : helperText ? `${textareaId}-helper` : undefined}
+          className={`min-h-[120px] w-full resize-y rounded-lg border bg-white px-4 py-2.5 text-[var(--color-foreground)] placeholder-[var(--color-cream-400)] transition-all duration-200 focus:ring-2 focus:ring-offset-0 focus:outline-none ${
+            error
+              ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+              : "border-[var(--color-cream-300)] focus:border-[var(--color-primary)] focus:ring-[var(--color-primary)]"
+          } disabled:cursor-not-allowed disabled:bg-[var(--color-muted)] disabled:opacity-50 ${className} `}
+          aria-invalid={error ? "true" : "false"}
+          aria-describedby={
+            error ? `${textareaId}-error` : helperText ? `${textareaId}-helper` : undefined
+          }
           {...props}
         />
         {error && (
@@ -58,13 +40,16 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           </p>
         )}
         {!error && helperText && (
-          <p id={`${textareaId}-helper`} className="mt-1.5 text-sm text-[var(--color-muted-foreground)]">
+          <p
+            id={`${textareaId}-helper`}
+            className="mt-1.5 text-sm text-[var(--color-muted-foreground)]"
+          >
             {helperText}
           </p>
         )}
       </div>
     );
-  }
+  },
 );
 
-Textarea.displayName = 'Textarea';
+Textarea.displayName = "Textarea";
