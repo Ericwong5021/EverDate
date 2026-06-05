@@ -25,9 +25,9 @@ function CountdownPage() {
   const isValidDate = !isNaN(targetDate.getTime());
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-8 sm:px-6">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-8 sm:px-6">
       {/* Background gradient */}
-      <div className="fixed inset-0 bg-gradient-to-br from-cream via-cream-warm to-rose-gold-pale/30" />
+      <div className="from-cream via-cream-warm to-rose-gold-pale/30 fixed inset-0 bg-gradient-to-br" />
 
       {/* Decorative floating elements */}
       {DECORATIVE_HEARTS.map((heart, i) => (
@@ -46,42 +46,42 @@ function CountdownPage() {
       ))}
 
       {/* Radial decorative circles */}
-      <div className="fixed top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-rose-gold-pale/20 to-transparent blur-3xl" />
-      <div className="fixed bottom-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-wine-red/5 to-transparent blur-3xl" />
+      <div className="from-rose-gold-pale/20 fixed top-[-20%] right-[-10%] h-[500px] w-[500px] rounded-full bg-gradient-to-br to-transparent blur-3xl" />
+      <div className="from-wine-red/5 fixed bottom-[-20%] left-[-10%] h-[600px] w-[600px] rounded-full bg-gradient-to-tr to-transparent blur-3xl" />
 
       {/* Main card */}
       <div className="relative z-10 w-full max-w-lg">
-        <div className="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl shadow-rose-gold/10 animate-fade-in-up">
+        <div className="glass-card shadow-rose-gold/10 animate-fade-in-up rounded-3xl p-6 shadow-2xl sm:p-10">
           {/* Top ornament */}
-          <div className="flex justify-center mb-6">
+          <div className="mb-6 flex justify-center">
             <div className="flex items-center gap-3">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-rose-gold-light" />
+              <div className="to-rose-gold-light h-px w-12 bg-gradient-to-r from-transparent" />
               <span className="text-rose-gold text-lg">✦</span>
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-rose-gold-light" />
+              <div className="to-rose-gold-light h-px w-12 bg-gradient-to-l from-transparent" />
             </div>
           </div>
 
           {/* Anniversary type badge */}
-          <div className="flex justify-center mb-4">
-            <span className="inline-block px-4 py-1 rounded-full text-xs tracking-widest uppercase font-medium bg-rose-gold-pale/50 text-wine-red border border-rose-gold-pale">
+          <div className="mb-4 flex justify-center">
+            <span className="bg-rose-gold-pale/50 text-wine-red border-rose-gold-pale inline-block rounded-full border px-4 py-1 text-xs font-medium tracking-widest uppercase">
               {type}
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="text-center mb-2">
-            <span className="block text-lg sm:text-xl text-rose-gold font-medium tracking-wide">
+          <h1 className="mb-2 text-center">
+            <span className="text-rose-gold block text-lg font-medium tracking-wide sm:text-xl">
               {partnerA} & {partnerB}
             </span>
-            <span className="block text-2xl sm:text-3xl mt-2 text-gradient font-semibold">
+            <span className="text-gradient mt-2 block text-2xl font-semibold sm:text-3xl">
               {title}
             </span>
           </h1>
 
           {/* Date display */}
           {isValidDate && (
-            <div className="flex justify-center mt-4 mb-8">
-              <span className="text-sm sm:text-base text-rose-gold/70 tracking-wider">
+            <div className="mt-4 mb-8 flex justify-center">
+              <span className="text-rose-gold/70 text-sm tracking-wider sm:text-base">
                 {targetDate.getFullYear()}年{targetDate.getMonth() + 1}月{targetDate.getDate()}日
               </span>
             </div>
@@ -92,9 +92,9 @@ function CountdownPage() {
             {isValidDate ? (
               <CountdownTimer targetDate={targetDate} />
             ) : (
-              <div className="text-center text-rose-gold py-8">
+              <div className="text-rose-gold py-8 text-center">
                 <p className="text-lg">请设置正确的纪念日日期</p>
-                <p className="text-sm mt-2 text-rose-gold-light">
+                <p className="text-rose-gold-light mt-2 text-sm">
                   在链接中添加 ?date=2025-02-14&title=我们的纪念日
                 </p>
               </div>
@@ -102,12 +102,12 @@ function CountdownPage() {
           </div>
 
           {/* Bottom ornament */}
-          <div className="flex justify-center mb-6">
-            <div className="h-px w-32 bg-gradient-to-r from-transparent via-rose-gold-light to-transparent" />
+          <div className="mb-6 flex justify-center">
+            <div className="via-rose-gold-light h-px w-32 bg-gradient-to-r from-transparent to-transparent" />
           </div>
 
           {/* Message */}
-          <p className="text-center text-sm sm:text-base text-rose-gold/80 leading-relaxed mb-6 italic">
+          <p className="text-rose-gold/80 mb-6 text-center text-sm leading-relaxed italic sm:text-base">
             &ldquo;每一天的等待，都是因为遇见你，值得。&rdquo;
           </p>
 
@@ -117,8 +117,8 @@ function CountdownPage() {
           </div>
 
           {/* Footer */}
-          <div className="flex justify-center mt-8">
-            <span className="text-xs text-rose-gold-light/60 tracking-widest uppercase">
+          <div className="mt-8 flex justify-center">
+            <span className="text-rose-gold-light/60 text-xs tracking-widest uppercase">
               EverDate
             </span>
           </div>
@@ -132,9 +132,9 @@ export default function Page() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-cream">
-          <div className="glass-card rounded-3xl p-10 shadow-2xl shadow-rose-gold/10 text-center">
-            <div className="animate-pulse-gentle text-rose-gold text-4xl mb-4">♥</div>
+        <div className="bg-cream flex min-h-screen items-center justify-center">
+          <div className="glass-card shadow-rose-gold/10 rounded-3xl p-10 text-center shadow-2xl">
+            <div className="animate-pulse-gentle text-rose-gold mb-4 text-4xl">♥</div>
             <p className="text-rose-gold-light">加载中...</p>
           </div>
         </div>

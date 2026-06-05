@@ -53,12 +53,10 @@ function CountdownUnit({ value, label, index }: CountdownUnitProps) {
       style={{ animationDelay: `${index * 0.15}s` }}
     >
       <div className="relative">
-        <div className="glass-card rounded-2xl px-4 py-3 sm:px-6 sm:py-5 min-w-[72px] sm:min-w-[100px] text-center shadow-lg shadow-rose-gold-pale/30 transition-all duration-300 hover:shadow-xl hover:shadow-rose-gold/20 hover:-translate-y-0.5">
+        <div className="glass-card shadow-rose-gold-pale/30 hover:shadow-rose-gold/20 min-w-[72px] rounded-2xl px-4 py-3 text-center shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:min-w-[100px] sm:px-6 sm:py-5">
           <span
-            className={`text-3xl sm:text-5xl font-semibold tracking-wider transition-all duration-400 ease-out ${
-              isChanging
-                ? "text-wine-red-light scale-105"
-                : "text-wine-red"
+            className={`text-3xl font-semibold tracking-wider transition-all duration-400 ease-out sm:text-5xl ${
+              isChanging ? "text-wine-red-light scale-105" : "text-wine-red"
             }`}
             style={{ fontVariantNumeric: "tabular-nums" }}
           >
@@ -66,7 +64,7 @@ function CountdownUnit({ value, label, index }: CountdownUnitProps) {
           </span>
         </div>
       </div>
-      <span className="text-xs sm:text-sm text-rose-gold font-medium tracking-widest uppercase">
+      <span className="text-rose-gold text-xs font-medium tracking-widest uppercase sm:text-sm">
         {label}
       </span>
     </div>
@@ -78,9 +76,7 @@ interface CountdownTimerProps {
 }
 
 export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
-  const [timeLeft, setTimeLeft] = useState<CountdownValues>(() =>
-    calculateTimeLeft(targetDate)
-  );
+  const [timeLeft, setTimeLeft] = useState<CountdownValues>(() => calculateTimeLeft(targetDate));
 
   const updateTimer = useCallback(() => {
     setTimeLeft(calculateTimeLeft(targetDate));
@@ -94,11 +90,17 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   return (
     <div className="flex items-center justify-center gap-3 sm:gap-5">
       <CountdownUnit value={timeLeft.days} label="天" index={0} />
-      <span className="text-2xl sm:text-4xl text-rose-gold-light font-light mt-[-24px] sm:mt-[-32px]">:</span>
+      <span className="text-rose-gold-light mt-[-24px] text-2xl font-light sm:mt-[-32px] sm:text-4xl">
+        :
+      </span>
       <CountdownUnit value={timeLeft.hours} label="时" index={1} />
-      <span className="text-2xl sm:text-4xl text-rose-gold-light font-light mt-[-24px] sm:mt-[-32px]">:</span>
+      <span className="text-rose-gold-light mt-[-24px] text-2xl font-light sm:mt-[-32px] sm:text-4xl">
+        :
+      </span>
       <CountdownUnit value={timeLeft.minutes} label="分" index={2} />
-      <span className="text-2xl sm:text-4xl text-rose-gold-light font-light mt-[-24px] sm:mt-[-32px]">:</span>
+      <span className="text-rose-gold-light mt-[-24px] text-2xl font-light sm:mt-[-32px] sm:text-4xl">
+        :
+      </span>
       <CountdownUnit value={timeLeft.seconds} label="秒" index={3} />
     </div>
   );
